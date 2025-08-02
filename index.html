@@ -128,7 +128,8 @@
     <!-- 英雄区域 -->
     <header class="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="https://picsum.photos/id/1082/1920/1080" alt="小鸟游六花背景" class="w-full h-full object-cover opacity-50">
+            <!-- 相对路径：./ 表示当前目录，images/ 是图片文件夹，rikka-hero.jpg 是图片名 -->
+            <img src="./images/rikka-hero.jpg" alt="小鸟游六花背景" class="w-full h-full object-cover opacity-50">
             <div class="absolute inset-0 bg-gradient-to-r from-rikka-dark/80 to-rikka-purple/60"></div>
         </div>
         <div class="container mx-auto px-4 z-10 text-center">
@@ -146,6 +147,7 @@
         </div>
         <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-rikka-light to-transparent"></div>
     </header>
+    
 
     <main class="container mx-auto px-4 py-16">
         <!-- 关于六花 -->
