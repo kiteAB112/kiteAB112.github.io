@@ -1,0 +1,19 @@
+# 站点基本信息
+title: 我的个人网站
+description: 这是我的GitHub Pages个人网站
+baseurl: ""
+url: "https://kiteAB112.github.io"
+
+# 导航菜单配置
+nav:
+  - title: 首页
+    url: /
+  - title: 关于我
+    url: /about.html
+  - title: 项目
+    url: /projects.html
+  - title: 联系我
+    url: /contact.html
+
+# 主题设置（如果使用默认主题）
+theme: minima
