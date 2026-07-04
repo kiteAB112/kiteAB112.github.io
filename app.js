@@ -1,5 +1,5 @@
 const atlas = {
-  activeCharacterId: "levi-ackerman",
+  activeCharacterId: "rikka-takanashi",
   characters: [
     {
       id: "rikka-takanashi",
