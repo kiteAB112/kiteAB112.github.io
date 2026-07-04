@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Character Atlas | 动漫角色图鉴</title>
+    <meta
+      name="description"
+      content="一个长期维护的个人动漫角色与作品图鉴。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Character Atlas home">
+        <span class="brand-mark">CA</span>
+        <span>Character Atlas</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#profile">Profile</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#works">Works</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-media" id="hero-media"></div>
+        <div class="hero-content" id="hero-content"></div>
+        <div
+          class="spotlight-switcher"
+          id="spotlight-switcher"
+          aria-label="选择展示角色"
+        ></div>
+        <div class="atlas-strip" id="atlas-strip" aria-label="Atlas summary"></div>
+      </section>
+
+      <section class="section dossier" id="profile" aria-labelledby="profile-title">
+        <div class="dossier-media" id="profile-portrait"></div>
+        <div class="dossier-copy">
+          <div class="section-kicker">
+            <span>Profile</span>
+            <strong id="active-work"></strong>
+          </div>
+          <h2 id="profile-title">角色档案</h2>
+          <div id="character-profile"></div>
+        </div>
+      </section>
+
+      <section class="section quote-section" id="quotes" aria-labelledby="quotes-title">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">
+              <span>Words</span>
+              <strong id="quote-count"></strong>
+            </div>
+            <h2 id="quotes-title">经典台词</h2>
+          </div>
+        </div>
+        <div class="quote-grid" id="quote-grid"></div>
+      </section>
+
+      <section class="section" id="gallery" aria-labelledby="gallery-title">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">
+              <span>Gallery</span>
+              <strong id="gallery-count"></strong>
+            </div>
+            <h2 id="gallery-title">图片画廊</h2>
+          </div>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </section>
+
+      <section class="section" id="works" aria-labelledby="works-title">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">
+              <span>Works</span>
+              <strong id="work-count"></strong>
+            </div>
+            <h2 id="works-title">相关作品</h2>
+          </div>
+        </div>
+        <div class="work-grid" id="work-grid"></div>
+      </section>
+    </main>
+
+    <dialog class="image-dialog" id="image-dialog" aria-label="图片预览">
+      <button class="dialog-close" type="button" aria-label="关闭图片预览">
+        ×
+      </button>
+      <img id="dialog-image" alt="" />
+    </dialog>
+
+    <footer class="site-footer">
+      <span>Character Atlas</span>
+      <span>GitHub Pages</span>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
