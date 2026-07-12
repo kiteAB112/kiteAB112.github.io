@@ -1,0 +1,32 @@
+---
+interface Entry {
+  id: string;
+  data: {
+    title: string;
+    description: string;
+    published: Date;
+    tags: string[];
+  };
+}
+
+interface Props {
+  entries: Entry[];
+  section: string;
+  emptyText: string;
+}
+
+const { entries, section, emptyText } = Astro.props;
+---
+
+{entries.length ? (
+  <div class="entry-list">
+    {entries.map((entry) => (
+      <article class="entry-card">
+        <p class="eyebrow">{entry.data.published.toLocaleDateString('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+        <h2><a href={`/${section}/${entry.id}/`}>{entry.data.title}</a></h2>
+        <p>{entry.data.description}</p>
+        <div class="tags">{entry.data.tags.map((tag) => <span>{tag}</span>)}</div>
+      </article>
+    ))}
+  </div>
+) : <p class="empty">{emptyText}</p>}

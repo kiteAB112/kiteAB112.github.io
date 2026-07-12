@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Wuhulahu2 · Technical Home',
+  description = 'Security engineering, AI systems, experiments, and learning notes.',
+} = Astro.props;
+
+const nav = [
+  ['Home', '/'],
+  ['Projects', '/projects/'],
+  ['Stars', '/stars/'],
+  ['Articles', '/articles/'],
+  ['Labs', '/labs/'],
+  ['Notes', '/notes/'],
+  ['Now', '/now/'],
+];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Wuhulahu2<span> / tech</span></a>
+      <div class="header-actions">
+        <nav aria-label="主导航">
+          {nav.map(([label, href]) => <a class:list={{ active: Astro.url.pathname === href }} href={href}>{label}</a>)}
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="切换为浅色模式" title="切换明暗主题">
+          <span aria-hidden="true">☀</span>
+          <span class="theme-toggle-label">浅色</span>
+        </button>
+      </div>
+    </header>
+    <main class="page-shell">
+      <aside class="profile-rail" aria-label="个人简介">
+        <div class="profile-avatar-trigger">
+          <img class="profile-avatar" src="/profile-avatar.png" alt="Wuhulahu2 的个人头像" width="116" height="116" />
+          <div class="character-overlay" aria-hidden="true">
+            <img class="hover-character" src="/hover-character-v2.png" alt="" />
+          </div>
+        </div>
+        <div class="profile-intro">
+          <p class="eyebrow">ABOUT THIS HOME</p>
+          <p class="profile-name">Wuhulahu2</p>
+          <p>安全工程、AI 系统与可复现实践的长期记录。</p>
+        </div>
+        <div class="profile-focus">
+          <p class="eyebrow">FOCUS</p>
+          <ul>
+            <li>AI × Security</li>
+            <li>Security Engineering</li>
+            <li>Reproducible Labs</li>
+          </ul>
+        </div>
+        <a class="profile-github" href="https://github.com/kiteAB112">GitHub ↗</a>
+      </aside>
+      <div class="page-content"><slot /></div>
+    </main>
+    <footer>
+      <span>Built with Astro · Markdown-first · GitHub Pages</span>
+      <a href="https://github.com/kiteAB112">GitHub ↗</a>
+    </footer>
+    <script is:inline>
+      const toggle = document.querySelector('.theme-toggle');
+      const label = toggle?.querySelector('.theme-toggle-label');
+      const applyTheme = (theme) => {
+        document.documentElement.dataset.theme = theme;
+        const isLight = theme === 'light';
+        toggle?.setAttribute('aria-label', `切换为${isLight ? '深色' : '浅色'}模式`);
+        if (label) label.textContent = isLight ? '深色' : '浅色';
+        const icon = toggle?.querySelector('[aria-hidden="true"]');
+        if (icon) icon.textContent = isLight ? '☾' : '☀';
+      };
+      const savedTheme = localStorage.getItem('theme');
+      applyTheme(savedTheme || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+      toggle?.addEventListener('click', () => {
+        const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', nextTheme);
+        applyTheme(nextTheme);
+      });
+    </script>
+  </body>
+</html>

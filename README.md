@@ -1,68 +1,74 @@
-# Character Atlas
+# Wuhulahu2 Technical Home
 
-A static personal anime and character gallery designed for GitHub Pages.
+个人技术主页的最小可行版本，托管在 `kiteAB112.github.io`。它用于沉淀项目成果、技术文章、实验记录、短笔记以及当前学习方向，而不是追求一开始就成为功能复杂的博客。
 
-This version has migrated the old `kiteAB112.github.io` Rikka page into a
-cleaner atlas. 小鸟游六花 is the first complete character entry; the project is
-structured so more characters and works can be added over time.
+## 技术栈
 
-## Files
+- [Astro](https://astro.build/)
+- Markdown / 可选 MDX 内容文件
+- GitHub Pages
+- GitHub Actions 自动构建和部署
 
-- `index.html` - page structure
-- `styles.css` - visual design
-- `app.js` - editable atlas data and rendering logic
-- `assets/rikka/` - migrated local images from the old GitHub Pages project
+## 本地开发
 
-## Local Preview
-
-Open `index.html` directly in a browser.
-
-For a local HTTP server:
+需要 Node.js 22 或更高版本。
 
 ```powershell
-python -m http.server 4173
+npm install
+npm run dev
 ```
 
-Then visit:
+打开终端显示的本地地址（通常是 `http://localhost:4321`）。
+
+常用命令：
+
+```powershell
+npm run build    # 生成静态网站到 dist/
+npm run preview  # 本地预览构建产物
+npm run check    # Astro 类型与内容检查
+```
+
+## 内容发布
+
+内容位于 `src/content/`：
 
 ```text
-http://127.0.0.1:4173
+src/content/
+├── projects/  # 项目成果
+├── articles/  # 完整技术文章
+├── labs/      # 可复现实验记录
+└── notes/     # 简短技术笔记
 ```
 
-## Customize
+在对应目录新增一个 `.md`（或 `.mdx`）文件，使用下面的 frontmatter：
 
-Edit the `atlas.characters` and `atlas.works` data in `app.js`.
+```md
+---
+title: 标题
+description: 一句话说明内容解决的问题或给出的结论。
+published: 2026-07-12
+updated: 2026-07-12 # 可选
+tags: [Security, Experiment]
+draft: false
+---
 
-Each character can have:
+正文从这里开始。
+```
 
-- basic profile fields
-- tags and stats
-- quotes
-- gallery images
-- related work ids
+设置 `draft: true` 后，内容不会出现在公开页面或构建产物中。实验与项目推荐依次写清：问题、原理、环境与过程、结果、踩坑、复现材料和边界条件。
 
-Image URLs can be:
+`src/pages/now.astro` 是手动维护的当前状态页；完成一段学习或项目推进后直接更新它即可。
 
-- remote image URLs
-- files committed under an `assets/` directory
-- images hosted by GitHub Pages
+## 部署到 GitHub Pages
 
-## GitHub Pages
+工作流位于 `.github/workflows/deploy.yml`。向 `main` 分支推送后，它会使用 Astro 的 GitHub Action 构建，并将产物部署到 GitHub Pages。
 
-After pushing this project to GitHub:
+首次启用时，在 GitHub 仓库的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。本仓库是用户站仓库，因此 `astro.config.mjs` 仅设置：
 
-1. Open the repository settings.
-2. Go to `Pages`.
-3. Select `Deploy from a branch`.
-4. Choose the `main` branch and `/root`.
-5. Save and wait for the Pages URL.
+```js
+site: 'https://kiteAB112.github.io'
+```
 
-## Notes
+没有 `base` 路径。若日后将代码移到普通项目仓库，再按仓库名增加 `base` 即可。
 
-Avoid committing copyrighted image files unless you have the right to host them. For a public page, prefer your own artwork, screenshots you are allowed to use, or image links that are safe to publish.
-
-Current migrated/collected image sets:
-
-- `assets/rikka/` - migrated from the old local GitHub Pages project
-- `assets/frieren/` - collected from the official anime character page for layout drafting; review rights before public publishing
-- `assets/levi/` - collected from the official Attack on Titan Final Season character page for layout drafting; review rights before public publishing
+本地修改不会自动发布：必须由你自行检查、提交并推送。请勿将访问令牌、私密实验数据、未授权披露的漏洞细节或敏感个人信息提交到仓库。

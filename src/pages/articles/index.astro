@@ -1,0 +1,6 @@
+---
+import { getCollection } from 'astro:content';
+import SectionPage from '../../components/SectionPage.astro';
+const entries = (await getCollection('articles')).filter((entry) => !entry.data.draft).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+---
+<SectionPage title="Articles" section="articles" intro="相对完整的技术文章，优先讲清问题、原理、取舍与结论。" entries={entries} emptyText="还没有公开文章。" />

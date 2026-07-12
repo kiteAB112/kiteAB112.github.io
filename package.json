@@ -1,0 +1,36 @@
+{
+  "name": "kiteab112-tech-home",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiteAB112/kiteAB112.github.io.git"
+  },
+  "keywords": [
+    "astro",
+    "github-pages",
+    "technical-writing"
+  ],
+  "author": "Wuhulahu2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kiteAB112/kiteAB112.github.io/issues"
+  },
+  "homepage": "https://github.com/kiteAB112/kiteAB112.github.io#readme",
+  "description": "",
+  "dependencies": {
+    "astro": "^7.0.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import SectionPage from '../../components/SectionPage.astro';
+
+const entries = (await getCollection('stars'))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+---
+
+<SectionPage title="Stars" section="stars" intro="我持续关注的开源项目：用于理解安全工程、AI 系统与可复现实践的参考坐标，而非我的作品。" entries={entries} emptyText="正在整理第一批值得长期关注的开源项目。" />

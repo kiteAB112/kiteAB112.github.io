@@ -1,0 +1,6 @@
+---
+import { getCollection } from 'astro:content';
+import SectionPage from '../../components/SectionPage.astro';
+const entries = (await getCollection('projects')).filter((entry) => !entry.data.draft).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+---
+<SectionPage title="Projects" section="projects" intro="面向真实问题的项目成果：目标、架构、关键取舍和可验证产物。" entries={entries} emptyText="项目将在完成第一个可公开版本后出现。" />

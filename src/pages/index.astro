@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const visible = (collection: Awaited<ReturnType<typeof getCollection>>) => collection.filter((entry) => !entry.data.draft);
+const [projects, articles, labs, notes] = await Promise.all(['projects', 'articles', 'labs', 'notes'].map(async (name) => visible(await getCollection(name as any))));
+const recent = [...projects, ...articles, ...labs, ...notes].sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf()).slice(0, 4);
+---
+
+<BaseLayout>
+  <section class="hero">
+    <p class="eyebrow">PERSONAL TECHNICAL HOME</p>
+    <h1>安全工程与 AI 的实践记录</h1>
+    <p class="lead">我是 Wuhulahu2，一名即将进入信息安全工程领域的开发者。这里以可复现、可追溯的方式沉淀项目成果、技术写作、实验过程和正在推进的学习。</p>
+    <div class="actions"><a class="button primary" href="/projects/">查看项目</a><a class="button" href="/now/">我正在做什么</a></div>
+  </section>
+
+  <section class="focus">
+    <p class="eyebrow">CURRENT DIRECTION</p>
+    <div class="focus-grid">
+      <article><h2>AI × Security</h2><p>探索如何将智能体与自动化流程用于代码审计、安全分析与工程实践。</p></article>
+      <article><h2>Offensive & Defensive Practice</h2><p>用可控靶场和复现实验建立对漏洞、检测与防护机制的真实理解。</p></article>
+      <article><h2>Durable Knowledge</h2><p>将问题、原理、证据和踩坑保留为可检索、可迭代的技术材料。</p></article>
+    </div>
+  </section>
+
+  <section class="recent">
+    <div class="section-title"><div><p class="eyebrow">RECENTLY ADDED</p><h2>从一个可追溯的起点开始</h2></div><a href="/notes/">全部记录 →</a></div>
+    <div class="recent-grid">
+      {recent.map((entry) => <article><p class="eyebrow">{entry.collection}</p><h3><a href={`/${entry.collection}/${entry.id}/`}>{entry.data.title}</a></h3><p>{entry.data.description}</p></article>)}
+    </div>
+  </section>
+</BaseLayout>

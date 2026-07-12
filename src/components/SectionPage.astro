@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EntryList from './EntryList.astro';
+
+interface Props {
+  title: string;
+  intro: string;
+  section: string;
+  entries: any[];
+  emptyText: string;
+}
+
+const { title, intro, section, entries, emptyText } = Astro.props;
+---
+
+<BaseLayout title={`${title} · Wuhulahu2`} description={intro}>
+  <section class="page-heading">
+    <p class="eyebrow">/{section}</p>
+    <h1>{title}</h1>
+    <p>{intro}</p>
+  </section>
+  <EntryList entries={entries} section={section} emptyText={emptyText} />
+</BaseLayout>

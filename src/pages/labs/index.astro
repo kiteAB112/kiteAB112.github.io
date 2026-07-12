@@ -1,0 +1,6 @@
+---
+import { getCollection } from 'astro:content';
+import SectionPage from '../../components/SectionPage.astro';
+const entries = (await getCollection('labs')).filter((entry) => !entry.data.draft).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+---
+<SectionPage title="Labs" section="labs" intro="可复现的实验记录：环境、步骤、观察结果、失败路径和材料。" entries={entries} emptyText="实验记录会在完成可复现整理后发布。" />
