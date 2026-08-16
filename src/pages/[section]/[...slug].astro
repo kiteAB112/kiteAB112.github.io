@@ -8,15 +8,63 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
+const articles = entry.collection === 'articles'
+  ? (await getCollection('articles'))
+      .filter((item) => !item.data.draft)
+      .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
+  : [];
+const toc = headings.filter((heading) => heading.depth <= 3);
 ---
 
 <BaseLayout title={`${entry.data.title} · Wuhulahu2`} description={entry.data.description}>
-  <article class="prose">
-    <p class="eyebrow">/{entry.collection} · {entry.data.published.toLocaleDateString('zh-CN')}</p>
-    <h1>{entry.data.title}</h1>
-    <p class="lead">{entry.data.description}</p>
-    <div class="tags">{entry.data.tags.map((tag) => <span>{tag}</span>)}</div>
-    <Content />
-  </article>
+  {entry.collection === 'articles' && (
+    <Fragment slot="profile-extra">
+      <div class="article-directory" aria-label="文章列表">
+        <p class="eyebrow">ARTICLES</p>
+        <nav>
+          {articles.map((item) => (
+            <a href={`/articles/${item.id}/`} class:list={{ active: item.id === entry.id }}>
+              {item.data.title}
+            </a>
+          ))}
+        </nav>
+      </div>
+      <a class="profile-github" href="https://github.com/kiteAB112">GitHub ↗</a>
+    </Fragment>
+  )}
+  {entry.collection === 'articles' ? (
+    <div class="article-page-grid">
+      <article class="prose">
+        <p class="eyebrow">/{entry.collection} · {entry.data.published.toLocaleDateString('zh-CN')}</p>
+        <h1>{entry.data.title}</h1>
+        <p class="lead">{entry.data.description}</p>
+        <div class="tags">{entry.data.tags.map((tag) => <span>{tag}</span>)}</div>
+        <Content />
+      </article>
+
+      {toc.length > 0 && (
+        <div class="article-toc-zone">
+          <aside class="article-toc-flyout" aria-label="本文目录">
+          <p class="eyebrow">On this page</p>
+          <nav>
+            {toc.map((heading) => (
+              <a href={`#${heading.slug}`} class:list={{ nested: heading.depth === 3 }}>
+                {heading.text}
+              </a>
+            ))}
+          </nav>
+          </aside>
+        </div>
+      )}
+    </div>
+  ) : (
+    <article class="prose">
+      <p class="eyebrow">/{entry.collection} · {entry.data.published.toLocaleDateString('zh-CN')}</p>
+      <h1>{entry.data.title}</h1>
+      <p class="lead">{entry.data.description}</p>
+      <div class="tags">{entry.data.tags.map((tag) => <span>{tag}</span>)}</div>
+      <Content />
+    </article>
+  )}
 </BaseLayout>

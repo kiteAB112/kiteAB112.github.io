@@ -56,15 +56,17 @@ const nav = [
           <p class="profile-name">Wuhulahu2</p>
           <p>安全工程、AI 系统与可复现实践的长期记录。</p>
         </div>
-        <div class="profile-focus">
-          <p class="eyebrow">FOCUS</p>
-          <ul>
-            <li>AI × Security</li>
-            <li>Security Engineering</li>
-            <li>Reproducible Labs</li>
-          </ul>
-        </div>
-        <a class="profile-github" href="https://github.com/kiteAB112">GitHub ↗</a>
+        <slot name="profile-extra">
+          <div class="profile-focus">
+            <p class="eyebrow">FOCUS</p>
+            <ul>
+              <li>AI × Security</li>
+              <li>Security Engineering</li>
+              <li>Reproducible Labs</li>
+            </ul>
+          </div>
+          <a class="profile-github" href="https://github.com/kiteAB112">GitHub ↗</a>
+        </slot>
       </aside>
       <div class="page-content"><slot /></div>
     </main>
