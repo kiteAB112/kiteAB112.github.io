@@ -14,7 +14,7 @@ const articles = entry.collection === 'articles'
       .filter((item) => !item.data.draft)
       .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
   : [];
-const toc = headings.filter((heading) => heading.depth <= 3);
+const toc = headings.filter((heading) => heading.depth <= 4);
 ---
 
 <BaseLayout title={`${entry.data.title} · Wuhulahu2`} description={entry.data.description}>
@@ -35,11 +35,22 @@ const toc = headings.filter((heading) => heading.depth <= 3);
   )}
   {entry.collection === 'articles' ? (
     <div class="article-page-grid">
+      <div class="article-reading-progress" aria-hidden="true"><span></span></div>
       <article class="prose">
         <p class="eyebrow">/{entry.collection} · {entry.data.published.toLocaleDateString('zh-CN')}</p>
         <h1>{entry.data.title}</h1>
         <p class="lead">{entry.data.description}</p>
         <div class="tags">{entry.data.tags.map((tag) => <span>{tag}</span>)}</div>
+        {entry.id === 'compliance-going' && (
+          <aside class="article-guide" aria-label="阅读导览">
+            <p class="eyebrow">READING GUIDE</p>
+            <ol>
+              <li><strong>先看源头：</strong>从 COSO 的内控与风险管理思想理解安全合规。</li>
+              <li><strong>再建主线：</strong>用 ISO/IEC 27001 的 ISMS 循环串起范围、风险、控制与改进。</li>
+              <li><strong>最后按需延展：</strong>按云、隐私、事件响应和供应链等场景进入其他标准。</li>
+            </ol>
+          </aside>
+        )}
         <Content />
       </article>
 
@@ -49,7 +60,7 @@ const toc = headings.filter((heading) => heading.depth <= 3);
           <p class="eyebrow">On this page</p>
           <nav>
             {toc.map((heading) => (
-              <a href={`#${heading.slug}`} class:list={{ nested: heading.depth === 3 }}>
+              <a href={`#${heading.slug}`} data-toc-link class:list={{ nested: heading.depth >= 4 }}>
                 {heading.text}
               </a>
             ))}
@@ -68,3 +79,30 @@ const toc = headings.filter((heading) => heading.depth <= 3);
     </article>
   )}
 </BaseLayout>
+
+{entry.collection === 'articles' && (
+  <script is:inline>
+    const articleProgress = document.querySelector('.article-reading-progress span');
+    const tocLinks = [...document.querySelectorAll('[data-toc-link]')];
+    const tocById = new Map(tocLinks.map((link) => [decodeURIComponent(link.getAttribute('href')?.slice(1) || ''), link]));
+    const updateReadingProgress = () => {
+      const root = document.documentElement;
+      const scrollable = root.scrollHeight - root.clientHeight;
+      articleProgress?.style.setProperty('transform', `scaleX(${scrollable > 0 ? Math.min(scrollY / scrollable, 1) : 0})`);
+    };
+    const setActiveToc = (id) => {
+      tocLinks.forEach((link) => link.classList.toggle('active', link === tocById.get(id)));
+    };
+    const headings = [...document.querySelectorAll('.prose h2, .prose h3, .prose h4')];
+    if (headings.length && tocLinks.length) {
+      const tocObserver = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActiveToc(visible[0].target.id);
+      }, { rootMargin: '-18% 0px -70% 0px', threshold: 0 });
+      headings.forEach((heading) => tocObserver.observe(heading));
+      setActiveToc(headings[0].id);
+    }
+    updateReadingProgress();
+    addEventListener('scroll', updateReadingProgress, { passive: true });
+  </script>
+)}
