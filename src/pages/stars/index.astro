@@ -1,10 +1,49 @@
 ---
-import { getCollection } from 'astro:content';
-import SectionPage from '../../components/SectionPage.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const entries = (await getCollection('stars'))
-  .filter((entry) => !entry.data.draft)
-  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+type StarList = { name: string; description?: string; repositories: string[] };
+
+const lists: StarList[] = [
+  { name: 'RSS', description: '安全资讯与订阅源收集。', repositories: ['zhengjim/Chinese-Security-RSS', 'arch3rPro/SecurityRSS', 'zer0yu/CyberSecurityRSS', 'DIYgod/RSSHub', 'RSSNext/Folo'] },
+  { name: 'Future Code_audit', description: '为未来自动化 AI 代码审计积累的项目。', repositories: ['tizuio/TizuMark'] },
+  { name: 'Info_search', description: '信息收集、资产发现与枚举工具。', repositories: ['projectdiscovery/subfinder', 'knownsec/ksubdomain', 'projectdiscovery/dnsx', 'projectdiscovery/naabu', 'OJ/gobuster', 'ffuf/ffuf', 'urbanadventurer/WhatWeb', 'xiecat/fofax', 'projectdiscovery/httpx', 'HG-ha/ICP_Query'] },
+  { name: 'AI SEC', description: 'AI 安全学习路径与参考资料。', repositories: ['DeepSpaceHarbor/Awesome-AI-Security', 'muellerberndt/awesome-ai-security', 'TalEliyahu/Awesome-AI-Security', 'ottosulin/awesome-ai-security', 'Acmesec/theAIMythbook', 'OWASP/www-project-top-10-for-large-language-model-applications', '0Chencc/clawgod'] },
+  { name: 'Web_Sec', description: 'Web 漏洞、扫描、靶场与攻防实践。', repositories: ['SickleSec/SnowEyes', 'Ad1euDa1e/VueCrack', 'chaitin/xray', 'safe6Sec/ShiroExp', 'LandGrey/SpringBootVulExploit', 'AabyssZG/SpringBoot-Scan', 's0md3v/XSStrike', 'x364e3ab6/DudeSuite', 'PortSwigger/turbo-intruder', 'projectdiscovery/nuclei', 'projectdiscovery/nuclei-templates'] },
+  { name: 'Code_Audit', description: '代码审计、Java 与安全编码。', repositories: ['j3ers3/Hello-Java-Sec', 'whgojp/JavaSecLab', 'JoyChou93/java-sec-code', 'javaweb-sec/javaweb-sec', 'f1tz/cnseay', 'Tencent/secguide', 'frohoff/ysoserial'] },
+  { name: 'Cloud_Sec', description: '云安全、IaC 与云靶场。', repositories: ['HXSecurity/TerraformGoat', 'teamssix/twiki', 'teamssix/awesome-cloud-security'] },
+  { name: 'Security_Learning', description: '安全课程、知识库、靶场与 CTF。', repositories: ['satan1a/TheRoadOfSO', 'ckane/CS7038-Malware-Analysis', 'damit5/damit5.github.io', '414aaj/LingJing', 'djytmdj/Network-security-study-notes', 'olist213/Information_Security_Books', 'knownsec/404StarLink', 'WebGoat/WebGoat', 'LyleMi/Learn-Web-Hacking', 'crow821/crowsec', 'c0ny1/upload-labs', 'zhuifengshaonianhanlu/pikachu', 'skyblueee/sqli-labs-php7', 'Audi-1/sqli-labs', 'vulhub/vulhub', 'ProbiusOfficial/Hello-CTF', 'ctf-wiki/ctf-wiki'] },
+  { name: 'Reverse_Engineering', description: '逆向、调试与反混淆。', repositories: ['0xsdeo/AntiDebug_Breaker', 'overspace-labs/MaR', 'overspace-labs/HaE', 'Ackites/KillWxapkg', 'pwndbg/pwndbg'] },
+  { name: 'Offensive_Tools', description: '红队、利用、字典与辅助工具。', repositories: ['gophish/gophish', 'V4bel/dirtyfrag', 'reddelexc/hackerone-reports', 'danielmiessler/SecLists', 'guchangan1/All-Defense-Tool', 'vxcontrol/pentagi', 'Getshell/Mshell', 'nomi-sec/PoC-in-GitHub', 'TideSec/BypassAntiVirus', 'eeeeeeeeee-code/POC', 'jhao104/proxy_pool', 'zxcvbn001/password_brute_dictionary', 'rootphantomer/Blasting_dictionary'] },
+  { name: 'Misc', description: '系统、效率工具及其他非安全收藏。', repositories: ['OpenListTeam/OpenList', 'torvalds/linux', 'ryanoasis/nerd-fonts', 'jitwxs/163MusicLyrics'] },
+];
+
+const starred = [
+  'zer0yu/CyberSecurityRSS', 'arch3rPro/SecurityRSS', 'gophish/gophish', 'tizuio/TizuMark', 'OpenListTeam/OpenList', 'V4bel/dirtyfrag', 'xiecat/fofax', '0Chencc/clawgod', 'PortSwigger/turbo-intruder', 'projectdiscovery/nuclei-templates', 'projectdiscovery/nuclei', 'urbanadventurer/WhatWeb', 'ffuf/ffuf', 'OJ/gobuster', 'projectdiscovery/naabu', 'projectdiscovery/dnsx', 'projectdiscovery/httpx', 'knownsec/ksubdomain', 'projectdiscovery/subfinder', 'reddelexc/hackerone-reports', 'SickleSec/SnowEyes', 'Ad1euDa1e/VueCrack', '0xsdeo/AntiDebug_Breaker', 'overspace-labs/MaR', 'overspace-labs/HaE', 'HG-ha/ICP_Query', 'OWASP/www-project-top-10-for-large-language-model-applications', 'Acmesec/theAIMythbook', 'j3ers3/Hello-Java-Sec', 'whgojp/JavaSecLab', 'JoyChou93/java-sec-code', 'torvalds/linux', 'RSSNext/Folo', 'DIYgod/RSSHub', 'zhengjim/Chinese-Security-RSS', 'DeepSpaceHarbor/Awesome-AI-Security', 'muellerberndt/awesome-ai-security', 'TalEliyahu/Awesome-AI-Security', 'ottosulin/awesome-ai-security', 'satan1a/TheRoadOfSO', 'ckane/CS7038-Malware-Analysis', 'chaitin/xray', 'javaweb-sec/javaweb-sec', 'damit5/damit5.github.io', 'f1tz/cnseay', 'danielmiessler/SecLists', 'HXSecurity/TerraformGoat', 'teamssix/twiki', '414aaj/LingJing', 'teamssix/awesome-cloud-security', 'guchangan1/All-Defense-Tool', 'Ackites/KillWxapkg', 'ryanoasis/nerd-fonts', 'pwndbg/pwndbg', 'x364e3ab6/DudeSuite', 'djytmdj/Network-security-study-notes', 'vxcontrol/pentagi', 'safe6Sec/ShiroExp', 'Getshell/Mshell', 'olist213/Information_Security_Books', 'nomi-sec/PoC-in-GitHub', 'TideSec/BypassAntiVirus', 'eeeeeeeeee-code/POC', 'LandGrey/SpringBootVulExploit', 'Tencent/secguide', 'knownsec/404StarLink', 'jhao104/proxy_pool', 'WebGoat/WebGoat', 'frohoff/ysoserial', 'LyleMi/Learn-Web-Hacking', 'zxcvbn001/password_brute_dictionary', 'AabyssZG/SpringBoot-Scan', 's0md3v/XSStrike', 'crow821/crowsec', 'c0ny1/upload-labs', 'zhuifengshaonianhanlu/pikachu', 'skyblueee/sqli-labs-php7', 'Audi-1/sqli-labs', 'vulhub/vulhub', 'rootphantomer/Blasting_dictionary', 'ProbiusOfficial/Hello-CTF', 'ctf-wiki/ctf-wiki', 'jitwxs/163MusicLyrics',
+];
+const categorized = new Set(lists.flatMap((list) => list.repositories));
+const otherStars = starred.filter((repository) => !categorized.has(repository));
+const id = (name: string) => name.toLowerCase().replaceAll(' ', '-');
 ---
 
-<SectionPage title="Stars" section="stars" intro="我持续关注的开源项目：用于理解安全工程、AI 系统与可复现实践的参考坐标，而非我的作品。" entries={entries} emptyText="正在整理第一批值得长期关注的开源项目。" />
+<BaseLayout title="Stars · Wuhulahu2" description="GitHub 收藏与个人分类索引。">
+  <section class="page-heading stars-heading">
+    <p class="eyebrow">/stars</p><h1>Stars</h1>
+    <p>共 {starred.length} 个 GitHub 收藏，均已按我的学习与研究方向归档。</p>
+  </section>
+  <nav class="star-list-nav" aria-label="Stars 分类">
+    {lists.map((list) => <a href={`#${id(list.name)}`}>{list.name} <span>{list.repositories.length}</span></a>)}
+    {otherStars.length > 0 && <a href="#other-stars">其他收藏 <span>{otherStars.length}</span></a>}
+  </nav>
+  <div class="star-groups">
+    {lists.map((list) => <section class="star-group" id={id(list.name)}>
+      <header><div><p class="eyebrow">/list</p><h2>{list.name}</h2></div><span>{list.repositories.length} 个项目</span></header>
+      {list.description && <p class="star-group-description">{list.description}</p>}
+      <div class="star-grid">{list.repositories.map((fullName) => <a class="star-card" href={`https://github.com/${fullName}`} target="_blank" rel="noreferrer"><span>{fullName.split('/')[0]}</span><strong>{fullName.split('/')[1]}</strong></a>)}</div>
+    </section>)}
+    {otherStars.length > 0 && <section class="star-group" id="other-stars">
+      <header><div><p class="eyebrow">/all-stars</p><h2>其他收藏</h2></div><span>{otherStars.length} 个项目</span></header>
+      <p class="star-group-description">未放入 GitHub List 的完整收藏索引。</p>
+      <div class="star-grid">{otherStars.map((fullName) => <a class="star-card" href={`https://github.com/${fullName}`} target="_blank" rel="noreferrer"><span>{fullName.split('/')[0]}</span><strong>{fullName.split('/')[1]}</strong></a>)}</div>
+    </section>}
+  </div>
+</BaseLayout>
