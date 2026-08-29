@@ -36,7 +36,7 @@ const toc = headings.filter((heading) => heading.depth <= 4);
   {entry.collection === 'articles' ? (
     <div class="article-page-grid">
       <div class="article-reading-progress" aria-hidden="true"><span></span></div>
-      <article class="prose">
+      <article class:list={['prose', { 'prose--folo-rss': entry.id === 'folo-rss' }]}>
         <p class="eyebrow">/{entry.collection} · {entry.data.published.toLocaleDateString('zh-CN')}</p>
         <h1>{entry.data.title}</h1>
         <p class="lead">{entry.data.description}</p>
