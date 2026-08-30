@@ -51,7 +51,6 @@
 .article-figure--summary { padding:.5rem; border:1px solid color-mix(in srgb,var(--accent) 34%,var(--line)); border-radius:10px; background:color-mix(in srgb,var(--accent) 5%,var(--panel)); }
 .article-takeaway { margin:3.5rem 0 2.75rem; padding:1.2rem 1.35rem; border-left:3px solid var(--accent); border-radius:0 9px 9px 0; background:color-mix(in srgb,var(--accent) 9%,var(--panel)); }
 .article-takeaway p:last-child { margin-bottom:0; font-size:1.03rem; }
-.article-page-grid .prose--folo-rss { max-width:920px; }
 .prose--folo-rss > h4 { padding-left:.85rem; border-left:3px solid var(--accent); }
 .prose--folo-rss > p:has(> img) { margin:2rem 0 2.6rem; padding:.55rem; border:1px solid color-mix(in srgb,var(--accent) 28%,var(--line)); border-radius:11px; background:color-mix(in srgb,var(--accent) 5%,var(--panel)); box-shadow:0 12px 30px rgba(8,30,27,.08); }
 .prose--folo-rss > p:has(> img) > img { width:100%; margin:0; border:0; border-radius:6px; box-shadow:none; }
