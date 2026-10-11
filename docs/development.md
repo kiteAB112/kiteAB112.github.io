@@ -30,6 +30,8 @@ public/articles/ 现有文章的静态资源
 
 `/articles/` 和 `/tags/` 只使用已发布技术文章；标签随文章自动生成，没有预设词库。项目和 Fieldnotes 标签只显示文字。删除的示例文章与空 Labs、Notes 栏目不再保留独立入口。
 
+`/rss.xml` 提供已发布技术文章的全文，不包含项目、Stars 或 Fieldnotes。正文使用 Astro 渲染后的 Markdown，链接和图片地址转换为绝对地址；保留简介供列表展示。订阅简介单独使用 `src/config/site.ts` 中的 `feedDescription`。
+
 `/projects/` 展示个人项目；`/stars/` 展示收藏分类和精选说明。现存正文地址保持不变。`/now/` 保留为带日期的手动状态记录，`/about/` 介绍作者与站点。
 
 ## 本地开发
