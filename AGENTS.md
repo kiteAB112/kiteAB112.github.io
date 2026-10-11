@@ -4,7 +4,7 @@
 
 ## 项目入口
 
-先按任务需要阅读 README.md 和相关源码。AstroPaper v6.1 定制的 Astro 静态站点，没有服务端、数据库或 CMS；上游许可见 licenses/AstroPaper.txt。
+先按任务需要阅读 README.md、docs/development.md 和相关源码。AstroPaper v6.1 定制的 Astro 静态站点，没有服务端、数据库或 CMS；上游许可见 licenses/AstroPaper.txt。
 
 - Markdown 内容为 src/content/{articles,projects,fieldnotes}/ 三个集合。
 - Stars 分类和七篇精选说明由 src/data/stars.ts 维护。
@@ -17,7 +17,7 @@
 
 ## 内容与草稿
 
-遵循 src/content.config.ts。Fieldnotes 从 ZhihuCLI Weekly 手动复制，不自动同步；流程见 README.md。图片放在与正文同级的 <id>.assets/，通过静态资源路由保留 /fieldnotes/<id>/<filename> 地址。
+遵循 src/content.config.ts。Fieldnotes 从 ZhihuCLI Weekly 手动复制，不自动同步；流程见 docs/development.md。图片放在与正文同级的 <id>.assets/，通过静态资源路由保留 /fieldnotes/<id>/<filename> 地址。
 
 Fieldnotes 草稿仅本地 dev 可见。正式构建不生成任何草稿页面、搜索/RSS 项或草稿图片；页面与图片必须共用可见性规则。其他集合草稿始终隐藏。
 

@@ -20,6 +20,7 @@ const rootDepth = Math.min(...toc.map(heading => heading.depth));
 const editUrl = site.repository + '/edit/main/' + sourcePath;
 ---
 <BaseLayout title={meta.title + ' · Wuhulahu2'} description={meta.description} noindex={meta.draft}>
+  <div id="reading-progress" aria-hidden="true"></div>
   <p class="breadcrumb mt-6"><a href={back.href}>← {back.label}</a></p>
   {meta.draft && <aside class="draft-notice">草稿预览 · 仅本地开发可见，不会包含在正式构建中。</aside>}
   <article data-pagefind-body={!meta.draft ? '' : undefined}>
@@ -45,3 +46,15 @@ const editUrl = site.repository + '/edit/main/' + sourcePath;
   {!meta.draft && discussionId && <Comments discussionId={discussionId} />}
   <script src="../scripts/article.ts"></script>
 </BaseLayout>
+<style>
+  #reading-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    z-index: 100;
+    pointer-events: none;
+  }
+</style>

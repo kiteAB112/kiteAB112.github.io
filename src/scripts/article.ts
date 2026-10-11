@@ -27,4 +27,25 @@ document.querySelectorAll<HTMLPreElement>('#article-body pre').forEach(pre => {
   button.addEventListener('click', () => void copyText(pre.querySelector('code')?.textContent ?? pre.textContent ?? '', button, '复制代码'));
   wrapper.append(button);
 });
+const progress = document.querySelector<HTMLElement>('#reading-progress');
+const article = document.querySelector<HTMLElement>('#article-body');
+if (progress && article) {
+  let scheduled = false;
+  function updateProgress() {
+    scheduled = false;
+    const start = article!.getBoundingClientRect().top + window.scrollY;
+    const end = start + article!.offsetHeight - window.innerHeight;
+    const value = end > start
+      ? (window.scrollY - start) / (end - start)
+      : (article!.getBoundingClientRect().bottom <= window.innerHeight ? 1 : 0);
+    progress!.style.transform = `scaleX(${Math.max(0, Math.min(1, value))})`;
+  }
+  function scheduleUpdate() {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(updateProgress); }
+  }
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  new ResizeObserver(scheduleUpdate).observe(article);
+  updateProgress();
+}
 export {};
