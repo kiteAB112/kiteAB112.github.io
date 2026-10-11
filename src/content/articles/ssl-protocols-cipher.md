@@ -2,6 +2,7 @@
 title: SSL Protocols&Cipher
 description: 从漏扫报告中的旧版 TLS 和弱加密套件告警出发，了解协议协商、安全性及 Nginx 配置与 Windows 7 兼容性。
 published: 2026-10-11
+updated: 2026-10-11
 tags: [Security, TLS, Nginx]
 draft: false
 featured: false
@@ -187,6 +188,34 @@ server {
 所以兼容性不仅看协议版本，还要看密码套件、证书类型及应用实现
 
 对于 win 7 如何配置支持 TLS 1.2 的详细步骤，微软提供了相应的 Schannel 和 WinHTTP 配置方法，不做赘述，同时也不推荐企业留着 win 7
+
+### 检测项目
+
+有条件推荐 [testssl.sh](https://github.com/testssl/testssl.sh) 项目，可以直接检查服务端支持的协议版本、加密套件以及一些已知的 TLS 安全问题，不需要自己再写一个检测工具。这里有 Linux、WSL 或者 Docker 环境都可以用，如果本机已经有 Docker 的话直接用官方镜像就比较方便
+
+```powershell
+# 拉取 3.2 稳定版镜像
+docker pull ghcr.io/testssl/testssl.sh:3.2
+
+# example.com:443 替换成自己的或已获授权的服务地址
+docker run --rm -it ghcr.io/testssl/testssl.sh:3.2 example.com:443
+```
+
+它不只是看能不能建立 HTTPS 连接，还会检查下面这些内容
+
+- 协议版本：服务端是否还允许 SSL 2.0/3.0、TLS 1.0/1.1，以及是否支持 TLS 1.2/1.3
+- 加密套件：支持哪些套件，是否存在弱加密、匿名认证，以及服务端的套件选择偏好
+- 密钥交换：是否支持前向保密，DH 等密钥交换参数是否存在问题
+- 证书：有效期、域名匹配、证书链、签名算法和密钥强度等
+- 已知问题：例如 Heartbleed、POODLE、ROBOT 等，同时也会检查压缩、重协商和会话恢复等配置
+- 其他：部分客户端的握手兼容性，以及 HTTPS 服务的 HSTS 等响应头，具体检查内容还要看目标服务与运行参数
+
+项目也支持 HTML、JSON、CSV 等输出，需要留存报告或者后续处理的时候可以再用；Docker 中输出的报告默认在容器里，如果要保留到本机需要挂载目录，避免容器退出删除之后报告也没了
+
+![testssl.sh 检测结果示例](/articles/ssl-protocols-cipher/IMG-20261011161444843.png)
+
+最后如果只能使用原生 Windows，不方便使用 Docker、WSL 等环境的话，可以用 [SSLyze](https://github.com/nabla-c0d3/sslyze)，支持在 Windows 下通过 Python 安装，也能检测协议、套件、证书及部分已知 TLS 问题，直接作为命令行工具使用就行，不需要做二次开发。
+
 
 最后来放一个图作为总结
 
