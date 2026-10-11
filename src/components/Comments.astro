@@ -19,10 +19,10 @@ const configured = Boolean(giscus.repoId && giscus.categoryId);
   const status = document.querySelector('#comment-status');
   let loaded = false;
   function currentTheme() { return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'; }
-  button?.addEventListener('click', () => {
+  function loadComments() {
     if (!container || loaded) return;
     loaded = true;
-    button.disabled = true;
+    if (button) button.disabled = true;
     if (status) status.textContent = '正在连接 GitHub 评论…';
     const script = document.createElement('script');
     script.src = 'https://giscus.app/client.js';
@@ -37,15 +37,18 @@ const configured = Boolean(giscus.repoId && giscus.categoryId);
     };
     for (const [name, value] of Object.entries(options)) script.setAttribute('data-' + name, value);
     script.addEventListener('load', () => {
-      button.hidden = true;
+      if (button) button.hidden = true;
       if (status) status.textContent = '若评论未显示，可以通过下方链接前往 GitHub。';
     });
     script.addEventListener('error', () => {
-      loaded = false; button.disabled = false; script.remove();
+      loaded = false; if (button) button.disabled = false; script.remove();
       if (status) status.textContent = '评论暂时无法加载，请重试或前往 GitHub。';
     });
     container.append(script);
-  });
+  }
+  button?.addEventListener('click', loadComments);
+  // Let giscus consume its OAuth return parameter; never read or store its value here.
+  if (new URL(window.location.href).searchParams.has('giscus')) loadComments();
   document.addEventListener('site:theme', () => {
     container?.querySelector<HTMLIFrameElement>('iframe.giscus-frame')?.contentWindow?.postMessage(
       { giscus: { setConfig: { theme: currentTheme() } } }, 'https://giscus.app'
