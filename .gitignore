@@ -13,6 +13,9 @@ dist/
 Thumbs.db
 Desktop.ini
 
+# Private local collaboration instructions
+/AGENTS.md
+
 # Local Fieldnotes draft: publish only after content approval
 src/content/fieldnotes/fieldnotes-001.md
 src/content/fieldnotes/fieldnotes-001.assets/
