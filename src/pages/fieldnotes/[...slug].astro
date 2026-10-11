@@ -1,0 +1,19 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { isVisible, adjacentEntries, sourceUrl } from '../../utils/content';
+export async function getStaticPaths() {
+  return (await getCollection('fieldnotes', isVisible))
+    .map(entry => ({ params: { slug: entry.id }, props: { entry } }));
+}
+interface Props { entry: CollectionEntry<'fieldnotes'>; }
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const adjacent = adjacentEntries(await getCollection('fieldnotes'), entry);
+---
+<ArticleLayout meta={entry.data} headings={headings} back={{ href: '/fieldnotes/', label: 'Fieldnotes' }}
+  sourcePath={sourceUrl(entry.filePath)!} adjacent={adjacent}
+  discussionId={entry.data.discussionId ?? 'fieldnotes/' + entry.id}>
+  <p slot="metadata" class="text-sm text-muted-foreground">第 {entry.data.issue} 期 · {entry.data.week_start} — {entry.data.week_end}</p>
+  <Content />
+</ArticleLayout>

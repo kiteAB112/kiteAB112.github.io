@@ -1,0 +1,54 @@
+---
+import { giscus } from '../config/giscus';
+interface Props { discussionId: string; }
+const { discussionId } = Astro.props;
+const configured = Boolean(giscus.repoId && giscus.categoryId);
+---
+<section class="comments" data-pagefind-ignore aria-labelledby="discussion-heading">
+  <h2 id="discussion-heading">一起讨论</h2>
+  <p>有问题、不同的思路，或是发现了错误？欢迎在这里交流。</p>
+  {configured ? <div id="giscus-container" data-repo={giscus.repo} data-repo-id={giscus.repoId} data-category={giscus.category} data-category-id={giscus.categoryId} data-term={discussionId}>
+    <button id="load-comments" class="action-button">加载评论 · 使用 GitHub 登录参与</button>
+    <p id="comment-status" role="status"></p>
+    <a class="quiet-link text-sm" href={'https://github.com/' + giscus.repo + '/discussions'}>在 GitHub 查看讨论 ↗</a>
+  </div> : <p>评论区尚未开放。你也可以<a class="quiet-link" href="https://github.com/kiteAB112">在 GitHub 找到我</a>。</p>}
+</section>
+<script>
+  const container = document.querySelector<HTMLElement>('#giscus-container');
+  const button = document.querySelector<HTMLButtonElement>('#load-comments');
+  const status = document.querySelector('#comment-status');
+  let loaded = false;
+  function currentTheme() { return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'; }
+  button?.addEventListener('click', () => {
+    if (!container || loaded) return;
+    loaded = true;
+    button.disabled = true;
+    if (status) status.textContent = '正在连接 GitHub 评论…';
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    const options: Record<string, string> = {
+      repo: container.dataset.repo!, 'repo-id': container.dataset.repoId!,
+      category: container.dataset.category!, 'category-id': container.dataset.categoryId!,
+      mapping: 'specific', term: container.dataset.term!, strict: '1',
+      'reactions-enabled': '1', 'emit-metadata': '0', 'input-position': 'top',
+      theme: currentTheme(), lang: 'zh-CN', loading: 'lazy',
+    };
+    for (const [name, value] of Object.entries(options)) script.setAttribute('data-' + name, value);
+    script.addEventListener('load', () => {
+      button.hidden = true;
+      if (status) status.textContent = '若评论未显示，可以通过下方链接前往 GitHub。';
+    });
+    script.addEventListener('error', () => {
+      loaded = false; button.disabled = false; script.remove();
+      if (status) status.textContent = '评论暂时无法加载，请重试或前往 GitHub。';
+    });
+    container.append(script);
+  });
+  document.addEventListener('site:theme', () => {
+    container?.querySelector<HTMLIFrameElement>('iframe.giscus-frame')?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: currentTheme() } } }, 'https://giscus.app'
+    );
+  });
+</script>

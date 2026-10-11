@@ -1,4 +1,5 @@
 ---
+discussionId: projects/avcheck2
 title: AVCheck2
 description: 离线 Windows 进程识别工具；以本地版本化规则库提供可复核的安全产品识别结果。
 published: 2025-12-23

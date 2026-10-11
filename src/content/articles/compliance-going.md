@@ -1,4 +1,5 @@
 ---
+discussionId: articles/compliance-going
 title: Compliance Going
 description: 从企业内控与 COSO 到 ISO 27000 系列
 published: 2026-08-22

@@ -1,4 +1,5 @@
 ---
+discussionId: articles/folo-rss
 title: 搭建网安从业者的主动信息流
 description: 用 Folo、RSSHub 与 ArchiveBox 建立可持续的安全信息阅读和归档工作流。
 published: 2026-08-18

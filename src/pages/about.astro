@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+---
+<BaseLayout title="About · Wuhulahu2" description="A few spells, a few mysteries, and a small place to share them.">
+  <section class="page-heading" lang="en"><p class="breadcrumb"><a href="/">Home</a> / About</p><h1>About</h1></section>
+  <div class="app-prose max-w-none" lang="en">
+    <p>Hi, I’m <strong>wuhu</strong>. You can also call me <strong>wuhulahu2</strong>.</p>
+    <div class="about-poem">
+      <p>I haven’t learned much magic yet.<br />A few spells in my pocket,<br />a few mysteries still unsolved.</p>
+      <p>Some days, I want to call down the stars.<br />Others, I only want<br />a flower by the window to bloom.</p>
+      <p>If you happen to pass this way<br />with a strange little spell of your own,<br />stay awhile.</p>
+      <p>Before the light fades,<br />let’s trade a small wonder.</p>
+    </div>
+    <p>You’ll find my <a href="/articles/">articles</a>, <a href="/projects/">projects</a>, and <a href="/stars/">open-source favorites</a> here. Find me on <a href={site.github}>GitHub</a>, or follow along via <a href="/rss.xml">RSS</a>.</p>
+    <p class="site-note">Built with <a href="https://astro.build/">Astro</a> and <a href="https://github.com/satnaing/astro-paper">AstroPaper</a>. Written in Markdown. Hosted on GitHub Pages.</p>
+  </div>
+</BaseLayout>
+<style>
+  .about-poem { margin-block: 2.5rem; }
+  .about-poem p { line-height: 1.9; }
+  .site-note { margin-top: 2rem; font-size: 0.875rem; color: var(--color-muted-foreground); }
+</style>

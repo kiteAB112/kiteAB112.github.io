@@ -2,3 +2,17 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+
+# Local configuration and caches
+.env
+.env.*
+!.env.example
+.npm-cache/
+*.log
+*.tsbuildinfo
+Thumbs.db
+Desktop.ini
+
+# Local Fieldnotes draft: publish only after content approval
+src/content/fieldnotes/fieldnotes-001.md
+src/content/fieldnotes/fieldnotes-001.assets/

@@ -1,99 +1,94 @@
 # Wuhulahu2 Technical Home
 
-个人技术主页，托管在 `kiteAB112.github.io`。它用于沉淀自己的项目成果、技术文章、实验记录、短笔记、开源收藏与当前学习方向；重点是让内容保持可追溯、可维护。
+面向技术同行的个人博客，托管于 https://kiteAB112.github.io 。以技术文章和项目实践为主；未来个人服务器网站承载生活记录、部分技术内容与导航，两站独立定位。
 
-## 技术栈
+## 技术与设计
 
-- [Astro](https://astro.build/)
-- Markdown / 可选 MDX 内容文件
-- GitHub Pages
-- GitHub Actions 自动构建和部署
+Astro + Markdown，基于 AstroPaper v6.1.0 定制。保留单栏、文字列表、明暗配色，使用 Google Sans Code 与中文系统字体回退。Pagefind 提供全文搜索，RSS 和 sitemap 自动生成。
 
-## 页面与功能
+上游为 satnaing/astro-paper，参考提交 `35cfa7fbe0b897306d27670d3819e55d5205f3dd`，MIT 许可见 `licenses/AstroPaper.txt`。后续升级需审阅差异，不能直接覆盖定制源码。
 
-- `Projects`：本人正在进行、已完成或公开上传的项目。
-- `Stars`：长期关注的开源项目与简短的关注理由，不与个人作品混淆。
-- `Articles`、`Labs`、`Notes`：分别对应完整文章、可复现实验和短笔记。
-- `Now`：手动维护的当前学习与工作快照。
-- 浅色 / 深色主题切换会保存在浏览器中；首次访问会跟随系统偏好。
-- 宽屏页面带有个人侧栏。侧栏头像的悬浮人物效果仅在桌面端启用，不影响移动端阅读。
+## 目录
+
+```text
+src/
+  config/        站点信息与 giscus 配置
+  content/
+    articles/    技术文章（kind 可为 article、experiment、note）
+    projects/    个人项目
+    fieldnotes/  系列记录，图片与正文放在一起
+  data/stars.ts  GitHub 收藏分类及七篇精选说明
+  pages/         各栏目独立路由、RSS、标签、搜索
+  layouts/       页面外壳、列表布局、正文布局
+  components/    导航、列表、评论等共享组件
+  assets/        使用中的主题图标
+  scripts/       主题、正文交互
+  styles/        配色、排版与全局样式
+  utils/         内容筛选、排序和 URL 工具
+public/articles/ 现有文章的静态资源
+```
+
+`/articles/` 和 `/tags/` 只使用已发布技术文章；标签随文章自动生成，没有预设词库。项目和 Fieldnotes 标签只显示文字。删除的示例文章与空 Labs、Notes 栏目不再保留独立入口。
+
+`/projects/` 展示个人项目；`/stars/` 展示收藏分类和精选说明。现存正文地址保持不变。`/now/` 保留为带日期的手动状态记录，`/about/` 介绍作者与站点。
 
 ## 本地开发
 
-需要 Node.js 22 或更高版本。
+建议 Node.js 24 LTS，最低 22.19。GitHub Actions 使用 Node.js 22 最新版。
 
 ```powershell
 npm install
 npm run dev
-```
-
-打开终端显示的本地地址（通常是 `http://localhost:4321`）。
-
-常用命令：
-
-```powershell
-npm run build    # 生成静态网站到 dist/
-npm run preview  # 本地预览构建产物
-npm run check    # Astro 类型与内容检查
-```
-
-## 内容发布
-
-内容位于 `src/content/`：
-
-```text
-src/content/
-├── projects/  # 项目成果
-├── articles/  # 完整技术文章
-├── labs/      # 可复现实验记录
-├── notes/     # 简短技术笔记
-└── stars/     # 精选的 GitHub Star 项目
-```
-
-在对应目录新增一个 `.md`（或 `.mdx`）文件，使用下面的 frontmatter：
-
-```md
----
-title: 标题
-description: 一句话说明内容解决的问题或给出的结论。
-published: 2026-07-12
-updated: 2026-07-12 # 可选
-tags: [Security, Experiment]
-draft: false
----
-
-正文从这里开始。
-```
-
-设置 `draft: true` 后，内容不会出现在公开页面或构建产物中。实验与项目推荐依次写清：问题、原理、环境与过程、结果、踩坑、复现材料和边界条件。
-
-`src/pages/now.astro` 是手动维护的当前状态页；完成一段学习或项目推进后直接更新它即可。
-
-静态图片资源放在 `public/`。当前的个人头像与悬浮人物素材可在 `public/profile-avatar.png`、`public/hover-character-v2.png` 中替换；替换后建议重新执行构建检查。
-
-## 部署到 GitHub Pages
-
-工作流位于 `.github/workflows/deploy.yml`。向 `main` 分支推送后，它会使用 Astro 的 GitHub Action 构建，并将产物部署到 GitHub Pages。
-
-首次启用时，在 GitHub 仓库的 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。本仓库是用户站仓库，因此 `astro.config.mjs` 仅设置：
-
-```js
-site: 'https://kiteAB112.github.io'
-```
-
-没有 `base` 路径。若日后将代码移到普通项目仓库，再按仓库名增加 `base` 即可。
-
-本地修改不会自动发布：必须由你自行检查、提交并推送。请勿将访问令牌、私密实验数据、未授权披露的漏洞细节或敏感个人信息提交到仓库。
-
-## 发布前检查
-
-```powershell
 npm run check
 npm run build
+npm run preview
 ```
 
-确认通过后推送到 `main`，GitHub Actions 会自动部署到 <https://kiteAB112.github.io>。
+默认 http://localhost:4321/ 。全文搜索需要构建后的 preview。指定预览端口可用：
 
-## Contributors
+```powershell
+node node_modules/astro/bin/astro.mjs preview --host 127.0.0.1 --port 4322
+```
 
-详见 [CONTRIBUTORS.md](./CONTRIBUTORS.md)。
+## 写作
+
+元数据由 `src/content.config.ts` 校验，技术文章示例：
+
+```yaml
+---
+title: 标题
+description: 一句话说明问题或结论。
+published: 2026-10-10
+tags: [Security]
+draft: true
+featured: false
+kind: article
+discussionId: articles/stable-article-id
+---
+```
+
+`updated` 可选，实际修订时填写；日期按 Asia/Shanghai 展示。`featured` 仅用于技术文章，设为 true 后进入首页精选。已有 `discussionId` 应保持稳定，改标题或文件名时也不要改，以免评论关联改变。
+
+草稿不进入正式页面、搜索、RSS 或标签。Fieldnotes 草稿仅在 dev 可见；其图片路由使用相同可见性规则，无需构建后再删除资源。
+
+## Fieldnotes 手动发布
+
+继续在 `H:\Projects\ZhihuCLI\Weekly/` 写作，选定一期手动复制到 `src/content/fieldnotes/`。两份正文独立维护，不自动同步，暂不接入 Article 和 Thought。
+
+例如 `fieldnotes-001.md` 的图片放在同级 `fieldnotes-001.assets/`，引用地址仍为 `/fieldnotes/fieldnotes-001/图片文件名.png`。各期资源独立，不共用图片目录。
+
+保留 `issue`、`week_start`、`week_end`。第一期暂按记录结束日期排序，正式发布时再确认 `published`；未确认发布前保持 `draft: true`。
+
+## giscus
+
+评论组件已接入用户提供的真实仓库与 Announcements 分类 ID，配置在 `src/config/giscus.ts`。用户已开启 Discussions，并通过 giscus 配置页确认仓库满足条件。后续更换仓库或分类时，从 https://giscus.app/zh-CN 获取新的公开 ID；无需访问令牌。
+
+组件使用 specific 映射和稳定 `discussionId`；读者点击“加载评论”后才加载远程脚本。支持主题同步和加载失败提示，不自动发表评论。
+
+2026-10-11 已在本地验证真实评论框加载、各篇文章的独立映射及深色主题同步。验证外网加载时使用本机代理；未登录或发送测试评论。
+
+## 检查与部署
+
+修改后运行 `npm run check` 和 `npm run build`，检查链接、正式构建的草稿隔离和本地页面。`package.json` 的 selector parser 覆盖用于修复 typography 旧依赖；上游解决后可移除。
+
+`.github/workflows/deploy.yml` 在推送 main 后部署 GitHub Pages。用户要求先本地预览，确认后再提交、推送；不提前触发部署或修改远端设置。不要发布凭证、私密数据或未授权内容。贡献者见 `CONTRIBUTORS.md`。

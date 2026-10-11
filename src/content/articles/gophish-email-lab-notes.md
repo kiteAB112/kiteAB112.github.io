@@ -1,4 +1,5 @@
 ---
+discussionId: articles/gophish-email-lab-notes
 title: Gophishing & Email
 description: GoPhish 与邮件服务器部署、联调过程的个人记录。
 published: 2026-08-16

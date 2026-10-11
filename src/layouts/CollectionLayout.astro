@@ -1,0 +1,12 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import EntryList from '../components/EntryList.astro';
+import type { Entry } from '../utils/content';
+interface Props { title: string; description: string; entries: Entry[]; emptyText?: string; }
+const { title, description, entries, emptyText } = Astro.props;
+---
+<BaseLayout title={title + ' · Wuhulahu2'} description={description}>
+  <section class="page-heading"><p class="breadcrumb"><a href="/">首页</a> / {title}</p><h1>{title}</h1><p>{description}</p></section>
+  <nav class="collection-links" aria-label="相关页面"><slot name="navigation" /></nav>
+  <EntryList entries={entries} emptyText={emptyText} />
+</BaseLayout>

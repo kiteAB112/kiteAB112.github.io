@@ -1,0 +1,36 @@
+---
+// Adapted from AstroPaper v6.1 Header; see licenses/AstroPaper.txt.
+import IconSearch from '../assets/icons/IconSearch.svg';
+import IconMoon from '../assets/icons/IconMoon.svg';
+import IconSun from '../assets/icons/IconSunHigh.svg';
+import IconMenu from '../assets/icons/IconMenuDeep.svg';
+import { site } from '../config/site';
+const path = Astro.url.pathname;
+const links = [
+  { label: '文章', href: '/articles/', active: /^\/(articles|fieldnotes)\//.test(path) },
+  { label: '标签', href: '/tags/', active: path.startsWith('/tags/') },
+  { label: '项目', href: '/projects/', active: /^\/(projects|stars)\//.test(path) },
+  { label: '关于', href: '/about/', active: /^\/(about|now)\//.test(path) },
+];
+---
+<a class="skip-link" href="#main-content">跳到正文</a>
+<header class="app-layout">
+  <div class="site-header border-border border-b">
+    <a href="/" class="brand text-xl font-semibold sm:text-2xl">{site.title}</a>
+    <button id="menu-btn" class="icon-button mobile-menu" aria-label="展开导航" aria-expanded="false" aria-controls="main-nav"><IconMenu /></button>
+    <nav id="main-nav" aria-label="主导航">
+      {links.map(link => <a href={link.href} class:list={['nav-link', { 'active-nav': link.active }]} aria-current={link.active ? 'page' : undefined}>{link.label}</a>)}
+      <a href="/search/" class="icon-button" aria-label="搜索文章" title="搜索文章"><IconSearch /></a>
+      <button id="theme-btn" class="icon-button" aria-label="切换主题" title="切换明暗主题"><IconMoon class="moon-icon" /><IconSun class="sun-icon" /></button>
+    </nav>
+  </div>
+</header>
+<script>
+  const menu = document.querySelector('#menu-btn');
+  menu?.addEventListener('click', () => {
+    const open = menu.getAttribute('aria-expanded') !== 'true';
+    menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', open ? '收起导航' : '展开导航');
+    document.querySelector('#main-nav')?.classList.toggle('is-open', open);
+  });
+</script>

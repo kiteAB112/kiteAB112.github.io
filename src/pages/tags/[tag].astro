@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryList from '../../components/EntryList.astro';
+import { getReadingEntries, type Entry } from '../../utils/content';
+export async function getStaticPaths() {
+  const entries = await getReadingEntries();
+  const tags = [...new Set(entries.flatMap(entry => entry.data.tags))];
+  return tags.map(tag => ({ params: { tag }, props: { tag, entries: entries.filter(entry => entry.data.tags.includes(tag)) } }));
+}
+interface Props { tag: string; entries: Entry[]; }
+const { tag, entries } = Astro.props;
+---
+<BaseLayout title={'#' + tag + ' · Wuhulahu2'}>
+  <section class="page-heading"><p class="breadcrumb"><a href="/tags/">标签</a> / {tag}</p><h1>#{tag}</h1><p>共 {entries.length} 篇记录。</p></section>
+  <EntryList entries={entries} />
+</BaseLayout>

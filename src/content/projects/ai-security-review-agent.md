@@ -1,4 +1,5 @@
 ---
+discussionId: projects/ai-security-review-agent
 title: AI-Security-Review-Agent
 description: 面向代码安全审查的智能体项目方向与工程化探索。
 published: 2026-07-12

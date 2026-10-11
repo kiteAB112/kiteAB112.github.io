@@ -1,0 +1,18 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { adjacentEntries, sourceUrl } from '../../utils/content';
+export async function getStaticPaths() {
+  return (await getCollection('projects', entry => !entry.data.draft))
+    .map(entry => ({ params: { slug: entry.id }, props: { entry } }));
+}
+interface Props { entry: CollectionEntry<'projects'>; }
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const adjacent = adjacentEntries(await getCollection('projects'), entry);
+---
+<ArticleLayout meta={entry.data} headings={headings} back={{ href: '/projects/', label: '项目' }}
+  sourcePath={sourceUrl(entry.filePath)!} adjacent={adjacent}
+  discussionId={entry.data.discussionId ?? 'projects/' + entry.id}>
+  <Content />
+</ArticleLayout>

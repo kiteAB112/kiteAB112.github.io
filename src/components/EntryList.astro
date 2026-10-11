@@ -1,32 +1,13 @@
 ---
-interface Entry {
-  id: string;
-  data: {
-    title: string;
-    description: string;
-    published: Date;
-    tags: string[];
-  };
-}
-
-interface Props {
-  entries: Entry[];
-  section: string;
-  emptyText: string;
-}
-
-const { entries, section, emptyText } = Astro.props;
+import IconCalendar from '../assets/icons/IconCalendar.svg';
+import { dateLabel, entryLabel, entryUrl, type Entry } from '../utils/content';
+interface Props { entries: Entry[]; emptyText?: string; heading?: 'h2' | 'h3'; }
+const { entries, emptyText = '这里还没有公开内容。', heading: Heading = 'h2' } = Astro.props;
 ---
-
-{entries.length ? (
-  <div class="entry-list">
-    {entries.map((entry) => (
-      <article class="entry-card">
-        <p class="eyebrow">{entry.data.published.toLocaleDateString('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
-        <h2><a href={`/${section}/${entry.id}/`}>{entry.data.title}</a></h2>
-        <p>{entry.data.description}</p>
-        <div class="tags">{entry.data.tags.map((tag) => <span>{tag}</span>)}</div>
-      </article>
-    ))}
-  </div>
-) : <p class="empty">{emptyText}</p>}
+{entries.length ? <ul class="entry-list">
+  {entries.map(entry => <li class="my-7">
+    <a href={entryUrl(entry)} class="text-accent inline-block text-lg font-medium decoration-dashed underline-offset-4 hover:underline"><Heading>{entry.data.title}</Heading></a>
+    <div class="entry-date"><IconCalendar aria-hidden="true" /><span>{entry.data.updated ? '更新于 ' : ''}<time datetime={(entry.data.updated ?? entry.data.published).toISOString()}>{dateLabel(entry.data.updated ?? entry.data.published)}</time><span aria-hidden="true"> · </span>{entryLabel(entry)}{entry.data.draft && ' · 草稿预览'}</span></div>
+    <p class="mt-1 leading-7">{entry.data.description}</p>
+  </li>)}
+</ul> : <p class="my-8 text-muted-foreground">{emptyText}</p>}

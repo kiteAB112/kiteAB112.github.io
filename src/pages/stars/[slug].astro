@@ -1,0 +1,15 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { starNotes, type StarNote } from '../../data/stars';
+export function getStaticPaths() {
+  return starNotes.map(note => ({ params: { slug: note.id }, props: { note } }));
+}
+interface Props { note: StarNote; }
+const { note } = Astro.props;
+const meta = { ...note, published: new Date(note.published) };
+---
+<ArticleLayout meta={meta} back={{ href: '/stars/', label: '开源收藏' }} sourcePath="src/data/stars.ts"
+  headings={[{ depth: 2, slug: '为什么关注', text: '为什么关注' }, { depth: 2, slug: '仓库', text: '仓库' }]}>
+  <h2 id="为什么关注">为什么关注</h2><p>{note.reason}</p>
+  <h2 id="仓库">仓库</h2><p><a href={'https://github.com/' + note.repository}>{note.repository}</a></p>
+</ArticleLayout>

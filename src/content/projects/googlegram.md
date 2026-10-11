@@ -1,4 +1,5 @@
 ---
+discussionId: projects/googlegram
 title: googleGram
 description: 为目标域名生成可自定义 Google 查询语法的轻量脚本。
 published: 2026-04-19

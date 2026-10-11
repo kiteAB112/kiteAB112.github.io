@@ -1,0 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+import CollectionLayout from '../../layouts/CollectionLayout.astro';
+import { isVisible, byDate } from '../../utils/content';
+const entries = (await getCollection('fieldnotes', isVisible)).sort(byDate);
+---
+<CollectionLayout title="Fieldnotes" description="阅读、发现、兴趣与思考，记录一段时间里真实关注的事。" entries={entries} emptyText="第一期正在整理中。">
+  <a slot="navigation" href="/articles/">← 全部文章</a>
+</CollectionLayout>

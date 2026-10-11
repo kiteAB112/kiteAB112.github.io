@@ -1,4 +1,5 @@
 ---
+discussionId: projects/xsstrike-easy
 title: Xsstrike_easy
 description: 阅读 XSStrike 源码后的简化复刻练习，用于理解 Web 安全扫描器的工程结构。
 published: 2025-09-14

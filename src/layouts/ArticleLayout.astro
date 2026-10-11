@@ -1,0 +1,47 @@
+---
+import type { MarkdownHeading } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+import Comments from '../components/Comments.astro';
+import IconCalendar from '../assets/icons/IconCalendar.svg';
+import { tagUrl, dateLabel } from '../utils/content';
+import { site } from '../config/site';
+interface Props {
+  meta: { title: string; description: string; published: Date; updated?: Date; tags: string[]; draft?: boolean };
+  headings?: MarkdownHeading[];
+  back: { href: string; label: string };
+  sourcePath: string;
+  linkTags?: boolean;
+  discussionId?: string;
+  adjacent?: { older?: { url: string; title: string }; newer?: { url: string; title: string } };
+}
+const { meta, headings = [], back, sourcePath, linkTags = false, discussionId, adjacent } = Astro.props;
+const toc = headings.filter(heading => heading.depth <= 4);
+const rootDepth = Math.min(...toc.map(heading => heading.depth));
+const editUrl = site.repository + '/edit/main/' + sourcePath;
+---
+<BaseLayout title={meta.title + ' · Wuhulahu2'} description={meta.description} noindex={meta.draft}>
+  <p class="breadcrumb mt-6"><a href={back.href}>← {back.label}</a></p>
+  {meta.draft && <aside class="draft-notice">草稿预览 · 仅本地开发可见，不会包含在正式构建中。</aside>}
+  <article data-pagefind-body={!meta.draft ? '' : undefined}>
+    <header class="article-heading">
+      <h1 data-pagefind-meta="title">{meta.title}</h1>
+      <div class="entry-date"><IconCalendar aria-hidden="true" /><span>发布于 <time datetime={meta.published.toISOString()}>{dateLabel(meta.published)}</time>{meta.updated && <> · 更新于 <time datetime={meta.updated.toISOString()}>{dateLabel(meta.updated)}</time></>}</span></div>
+      <p class="description">{meta.description}</p>
+      <slot name="metadata" />
+    </header>
+    {toc.length > 0 && <details class="article-toc" data-pagefind-ignore><summary>本文目录</summary><ol>{toc.map(heading => <li class:list={{ nested: heading.depth > rootDepth }}><a href={'#' + heading.slug}>{heading.text}</a></li>)}</ol></details>}
+    <div class="app-prose" id="article-body"><slot /></div>
+  </article>
+  <div class="tags mt-8" aria-label="内容标签">{meta.tags.map(tag => linkTags ? <a href={tagUrl(tag)}>#{tag}</a> : <span>#{tag}</span>)}</div>
+  <div class="article-actions">
+    <a class="quiet-link" href={editUrl}>在 GitHub 纠错 ↗</a>
+    <button id="copy-link" class="quiet-link" aria-live="polite">复制链接</button>
+    <a class="quiet-link" href="#main-content">返回顶部 ↑</a>
+  </div>
+  {!meta.draft && (adjacent?.older || adjacent?.newer) && <nav class="adjacent-posts" aria-label="相邻内容">
+    <div>{adjacent.older && <a href={adjacent.older.url}><span>← 更早的{back.label}</span>{adjacent.older.title}</a>}</div>
+    <div>{adjacent.newer && <a href={adjacent.newer.url}><span>更新的{back.label} →</span>{adjacent.newer.title}</a>}</div>
+  </nav>}
+  {!meta.draft && discussionId && <Comments discussionId={discussionId} />}
+  <script src="../scripts/article.ts"></script>
+</BaseLayout>

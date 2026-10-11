@@ -1,0 +1,11 @@
+---
+import IconGithub from '../assets/icons/socials/github.svg';
+import IconRss from '../assets/icons/IconRss.svg';
+import { site } from '../config/site';
+---
+<footer class="app-layout">
+  <div class="border-border flex flex-wrap items-center justify-between gap-4 border-t py-6 text-sm">
+    <p>© {new Date().getFullYear()} {site.title} <span class="text-muted-foreground">·</span> <a class="quiet-link" href="https://github.com/satnaing/astro-paper">AstroPaper</a></p>
+    <div class="flex items-center gap-3"><a class="icon-button" href={site.github} aria-label="GitHub"><IconGithub /></a><a class="icon-button" href="/rss.xml" aria-label="订阅 RSS"><IconRss /></a></div>
+  </div>
+</footer>

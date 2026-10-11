@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '@pagefind/default-ui/css/ui.css';
+---
+<BaseLayout title="搜索 · Wuhulahu2" description="搜索文章、实验与项目中的内容。" noindex>
+  <section class="page-heading"><p class="breadcrumb"><a href="/">首页</a> / 搜索</p><h1>搜索</h1><p>输入关键词，查找文章、实验和项目。</p></section>
+  <div id="search" class="my-6"></div>
+  <p id="search-status" class="text-sm text-muted-foreground" role="status"></p>
+  <noscript>搜索需要启用 JavaScript。也可以浏览<a href="/articles/">全部文章</a>或<a href="/tags/">标签</a>。</noscript>
+</BaseLayout>
+<script>
+  // @ts-expect-error Pagefind UI does not ship TypeScript declarations.
+  import { PagefindUI } from '@pagefind/default-ui';
+  const status = document.querySelector('#search-status');
+  async function init() {
+    try {
+      const response = await fetch('/pagefind/pagefind.js');
+      if (!response.ok || !(response.headers.get('content-type') || '').includes('javascript')) throw new Error('Missing index');
+      const search = new PagefindUI({
+        element: '#search', bundlePath: '/pagefind/', showImages: false, showSubResults: true,
+        translations: { placeholder: '搜索文章…', clear_search: '清除', load_more: '更多结果', search_label: '搜索本站', zero_results: '没有找到相关内容', many_results: '找到 [COUNT] 条结果', one_result: '找到 1 条结果', searching: '正在搜索…' },
+        processTerm: (term: string) => {
+          const url = new URL(location.href);
+          if (term) url.searchParams.set('q', term); else url.searchParams.delete('q');
+          history.replaceState(null, '', url);
+          return term;
+        },
+      });
+      const query = new URLSearchParams(location.search).get('q');
+      if (query) search.triggerSearch(query);
+    } catch {
+      if (status) status.textContent = import.meta.env.DEV
+        ? '开发预览的全文搜索需先构建。请运行 npm run build，再用 npm run preview 查看完整搜索效果。'
+        : '搜索暂时无法加载，请刷新重试，或通过标签浏览文章。';
+    }
+  }
+  void init();
+</script>
+<style is:global>
+  #search {
+    --pagefind-ui-font: var(--font-app);
+    --pagefind-ui-text: var(--foreground);
+    --pagefind-ui-background: var(--background);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-tag: var(--muted);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0;
+  }
+  #search input { font-weight: 400; }
+  #search .pagefind-ui__result-link { color: var(--accent); }
+</style>

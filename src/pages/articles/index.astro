@@ -1,6 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
-import SectionPage from '../../components/SectionPage.astro';
-const entries = (await getCollection('articles')).filter((entry) => !entry.data.draft).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+import CollectionLayout from '../../layouts/CollectionLayout.astro';
+import { getReadingEntries } from '../../utils/content';
+const entries = await getReadingEntries();
 ---
-<SectionPage title="Articles" section="articles" intro="相对完整的技术文章，优先讲清问题、原理、取舍与结论。" entries={entries} emptyText="还没有公开文章。" />
+<CollectionLayout title="文章" description="技术文章、实验记录与短笔记。记录过程，也留下思考。" entries={entries}>
+  <Fragment slot="navigation"><a href="/fieldnotes/">Fieldnotes</a><a href="/tags/">所有标签 →</a></Fragment>
+</CollectionLayout>

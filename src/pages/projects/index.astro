@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
-import SectionPage from '../../components/SectionPage.astro';
-const entries = (await getCollection('projects')).filter((entry) => !entry.data.draft).sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+import CollectionLayout from '../../layouts/CollectionLayout.astro';
+import { byDate } from '../../utils/content';
+const entries = (await getCollection('projects', entry => !entry.data.draft)).sort(byDate);
 ---
-<SectionPage title="Projects" section="projects" intro="面向真实问题的项目成果：目标、架构、关键取舍和可验证产物。" entries={entries} emptyText="项目将在完成第一个可公开版本后出现。" />
+<CollectionLayout title="项目" description="面向真实问题的项目成果：目标、架构、关键取舍和可验证产物。" entries={entries} emptyText="项目将在完成第一个可公开版本后出现。">
+  <a slot="navigation" href="/stars/">开源收藏 →</a>
+</CollectionLayout>

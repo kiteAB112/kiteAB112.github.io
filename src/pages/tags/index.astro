@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getReadingEntries, tagUrl } from '../../utils/content';
+const entries = await getReadingEntries();
+const counts = new Map<string, number>();
+for (const entry of entries) for (const tag of new Set(entry.data.tags)) counts.set(tag, (counts.get(tag) ?? 0) + 1);
+const tags = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+---
+<BaseLayout title="标签 · Wuhulahu2" description="按标签查找现有技术文章。">
+  <section class="page-heading"><p class="breadcrumb"><a href="/">首页</a> / 标签</p><h1>标签</h1><p>从一个感兴趣的话题开始。</p></section>
+  <ul class="flex flex-wrap gap-x-6 gap-y-4 py-6">{tags.map(([tag, count]) => <li><a class="text-accent quiet-link" href={tagUrl(tag)}>#{tag}</a><span class="ml-2 text-sm text-muted-foreground">{count}</span></li>)}</ul>
+</BaseLayout>
