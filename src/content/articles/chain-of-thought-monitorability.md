@@ -1,5 +1,5 @@
 ---
-title: 思维链可监测性
+title: Chain of Thought Monitorability
 description: 从 Astra 的安全争议出发，了解思维链监测、奖励作弊，以及 Jev 这类决策模型带来的观察边界。
 published: 2026-10-13
 tags: [AI, Security, CoT, Jev]
