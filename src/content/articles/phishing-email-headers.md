@@ -86,7 +86,7 @@ Received-SPF: fail
 
 Message-ID: <98172@attacker.example>
 ```
-From 中是 `company.example` 但是 `Return-Path、Reply-To`  都是 `attacker.example` 
+From 中是 `company.example` 但是 `Return-Path、Reply-To`  都是 `attacker.example`
 
 以及去访问 ip 查找 spf 发现和 From 不一致，Dkim 也是 None，也是直接导致 `DMARC` 失败
 
