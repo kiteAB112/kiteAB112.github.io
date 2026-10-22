@@ -1,5 +1,5 @@
 ---
-title: Cairn：看看它是怎么组织 Agent 的
+title: "Cairn: A Look at Its Architecture"
 description: 从 Server、Dispatcher、Worker 到两层执行循环，看看 Cairn 怎样组织 Agent 任务，以及几个值得学习的设计。
 published: 2026-10-22
 tags: [AI, Agent, Cairn]
@@ -36,6 +36,14 @@ Worker：调用模型和工具，开展工作
 
 Worker 支持 Claude Code、Codex、Pi 等后端。所以这里的 Worker 也不一定代表一个从头到尾一直在线的固定角色，更接近一套执行配置，以及按这套配置启动的具体任务。
 
+### Worker 的工具环境
+
+另外，容器模式下的 Worker 也不是只有一个 Agent CLI。项目的 `container/Dockerfile` 以 Kali Linux 为基础，安装了 `kali-linux-headless`，还补充了 Nuclei、Katana、Dalfox、dirsearch、Playwright 等工具，以及 Claude Code、Codex、Pi 这些执行器。镜像里也准备了部分安全参考资料和 PoC 仓库，Agent 可以按任务需要在容器里读取或调用。
+
+这里要分开看：Docker Compose 启动的是 Server 和 Dispatcher；Dispatcher 再通过 Docker 按项目管理独立的 Worker 容器。Kali 和这些工具在 Worker 镜像里，不是 Server 自身带着它们运行。
+
+这样一次任务拿到的不只是提示词，还有已经准备好的工具环境。当然，预装了工具不代表每轮都会全部调用，具体操作仍由 Agent 根据任务决定。项目也支持本地执行模式，那时使用的是宿主机已有的 CLI 和工具环境。
+
 ## 用任务图记录走到了哪里
 
 Cairn 用了几个很直观的概念：
@@ -63,6 +71,26 @@ Cairn 用了几个很直观的概念：
 ![Cairn Project 3 的任务执行图：多个探索方向从已有发现展开，项目状态为已停止](/articles/cairn-agent-architecture/project-003-task-graph.png)
 
 这是之前一次实践留下的任务图，可以看到探索方向会分叉，也会基于已有结果继续往下走。截图时项目已经停止，图中仍有未完成方向，用来看看它怎样记录过程。
+
+当时用的是 Claude Code 后端，一次 Reason 最多提出 2 个新 Intent，但执行并发都限制为 1，所以多个方向会排队，最多同时跑一个 Explore。这里限制的是同时运行的任务数，不是整个项目只能执行一次 Explore；Reason 和 Bootstrap 也共用这些执行名额。
+
+相关配置在 `dispatch.yaml`，节选如下：
+
+```yaml
+runtime:
+  max_workers: 1           # 全局同时运行的任务数
+  max_running_projects: 1 # 同时运行的项目数
+  max_project_workers: 1   # 单个项目同时运行的任务数
+
+tasks:
+  reason:
+    max_intents: 2         # 一次 Reason 最多提出两个新方向
+
+workers:
+  - name: claudecode_deepseek-flash
+    type: claudecode
+    max_running: 1         # 这套 Worker 配置的并发上限
+```
 
 ## Bootstrap、Reason 和 Explore
 
