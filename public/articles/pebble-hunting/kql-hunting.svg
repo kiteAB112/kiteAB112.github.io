@@ -1,0 +1,234 @@
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 844.0546875 356" height="356" xmlns="http://www.w3.org/2000/svg" width="844.0546875" id="kql-hunting" style="background-color:#ffffff">
+  <style>#kql-hunting{font-family:Segoe UI,Microsoft YaHei,sans-serif;font-size:16px;fill:#19385b;}#kql-hunting .error-icon{fill:hsl(32.3076923077, 100%, 99.9019607843%);}#kql-hunting .error-text{fill:rgb(0, 0.2307692308, 0.5000000001);stroke:rgb(0, 0.2307692308, 0.5000000001);}#kql-hunting .edge-thickness-normal{stroke-width:2px;}#kql-hunting .edge-thickness-thick{stroke-width:3.5px;}#kql-hunting .edge-pattern-solid{stroke-dasharray:0;}#kql-hunting .edge-pattern-dashed{stroke-dasharray:3;}#kql-hunting .edge-pattern-dotted{stroke-dasharray:2;}#kql-hunting .marker{fill:#758393;stroke:#758393;}#kql-hunting .marker.cross{stroke:#758393;}#kql-hunting svg{font-family:Segoe UI,Microsoft YaHei,sans-serif;font-size:16px;}#kql-hunting .label{font-family:Segoe UI,Microsoft YaHei,sans-serif;color:#19385b;}#kql-hunting .cluster-label text{fill:rgb(0, 0.2307692308, 0.5000000001);}#kql-hunting .cluster-label span,#kql-hunting p{color:rgb(0, 0.2307692308, 0.5000000001);}#kql-hunting .label text,#kql-hunting span,#kql-hunting p{fill:#19385b;color:#19385b;}#kql-hunting .node rect,#kql-hunting .node circle,#kql-hunting .node ellipse,#kql-hunting .node polygon,#kql-hunting .node path{fill:#e5f1ff;stroke:#b2c7de;stroke-width:1px;}#kql-hunting .flowchart-label text{text-anchor:middle;}#kql-hunting .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#kql-hunting .node .label{text-align:center;}#kql-hunting .node.clickable{cursor:pointer;}#kql-hunting .arrowheadPath{fill:#0b0b0b;}#kql-hunting .edgePath .path{stroke:#758393;stroke-width:2.0px;}#kql-hunting .flowchart-link{stroke:#758393;fill:none;}#kql-hunting .edgeLabel{background-color:hsl(92.3076923077, 100%, 94.9019607843%);text-align:center;}#kql-hunting .edgeLabel rect{opacity:0.5;background-color:hsl(92.3076923077, 100%, 94.9019607843%);fill:hsl(92.3076923077, 100%, 94.9019607843%);}#kql-hunting .labelBkg{background-color:rgba(241, 255, 228.9999999999, 0.5);}#kql-hunting .cluster rect{fill:#f8fafc;stroke:#d3dde7;stroke-width:1px;}#kql-hunting .cluster text{fill:rgb(0, 0.2307692308, 0.5000000001);}#kql-hunting .cluster span,#kql-hunting p{color:rgb(0, 0.2307692308, 0.5000000001);}#kql-hunting div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Segoe UI,Microsoft YaHei,sans-serif;font-size:12px;background:hsl(32.3076923077, 100%, 99.9019607843%);border:1px solid hsl(32.3076923077, 60%, 89.9019607843%);border-radius:2px;pointer-events:none;z-index:100;}#kql-hunting .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#19385b;}#kql-hunting :root{--mermaid-font-family:Segoe UI,Microsoft YaHei,sans-serif;}</style>
+  <g>
+    <marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="kql-hunting_flowchart-pointEnd">
+      <path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z">
+      </path>
+    </marker>
+    <marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="kql-hunting_flowchart-pointStart">
+      <path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z">
+      </path>
+    </marker>
+    <marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="kql-hunting_flowchart-circleEnd">
+      <circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5">
+      </circle>
+    </marker>
+    <marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="kql-hunting_flowchart-circleStart">
+      <circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5">
+      </circle>
+    </marker>
+    <marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="kql-hunting_flowchart-crossEnd">
+      <path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9">
+      </path>
+    </marker>
+    <marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="kql-hunting_flowchart-crossStart">
+      <path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9">
+      </path>
+    </marker>
+    <g class="root">
+      <g class="clusters">
+      </g>
+      <g class="edgePaths">
+        <path marker-end="url(#kql-hunting_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M393.641,36L393.641,39.333C393.641,42.667,393.641,49.333,393.641,55.117C393.641,60.9,393.641,65.8,393.641,68.25L393.641,70.7">
+        </path>
+        <path marker-end="url(#kql-hunting_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D" id="L-C-D-0" d="M676.848,36L676.848,39.333C676.848,42.667,676.848,49.333,676.848,55.117C676.848,60.9,676.848,65.8,676.848,68.25L676.848,70.7">
+        </path>
+        <path marker-end="url(#kql-hunting_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-F" id="L-E-F-0" d="M130.82,112L130.82,115.333C130.82,118.667,130.82,125.333,158.999,132.741C187.179,140.149,243.537,148.297,271.716,152.371L299.895,156.446">
+        </path>
+        <path marker-end="url(#kql-hunting_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-F" id="L-B-F-0" d="M393.641,112L393.641,115.333C393.641,118.667,393.641,125.333,393.641,131.117C393.641,136.9,393.641,141.8,393.641,144.25L393.641,146.7">
+        </path>
+        <path marker-end="url(#kql-hunting_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-F" id="L-D-F-0" d="M676.848,112L676.848,115.333C676.848,118.667,676.848,125.333,645.272,132.903C613.696,140.473,550.545,148.947,518.969,153.184L487.394,157.42">
+        </path>
+        <path marker-end="url(#kql-hunting_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-F LE-G" id="L-F-G-0" d="M337.746,188L327.395,191.333C317.044,194.667,296.342,201.333,285.992,207.117C275.641,212.9,275.641,217.8,275.641,220.25L275.641,222.7">
+        </path>
+        <path marker-end="url(#kql-hunting_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-F LE-H" id="L-F-H-0" d="M449.535,188L459.886,191.333C470.237,194.667,490.939,201.333,501.29,207.117C511.641,212.9,511.641,217.8,511.641,220.25L511.641,222.7">
+        </path>
+        <path marker-end="url(#kql-hunting_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-H LE-I" id="L-H-I-0" d="M511.641,264L511.641,267.333C511.641,270.667,511.641,277.333,511.641,283.117C511.641,288.9,511.641,293.8,511.641,296.25L511.641,298.7">
+        </path>
+      </g>
+      <g class="edgeLabels">
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+      <g class="nodes">
+        <g transform="translate(393.640625, 18)" data-id="A" data-node="true" id="flowchart-A-162" class="node default default flowchart-label">
+          <rect height="36" width="192" y="-18" x="-96" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">终端、身份、邮件等系统</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(393.640625, 94)" data-id="B" data-node="true" id="flowchart-B-163" class="node default default flowchart-label">
+          <rect height="36" width="192" y="-18" x="-96" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">安全平台采集并保存数据</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(676.84765625, 18)" data-id="C" data-node="true" id="flowchart-C-164" class="node default default flowchart-label">
+          <rect height="36" width="302.4140625" y="-18" x="-151.20703125" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">外部情报：TweetFeed、KEV、C2 名单等</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(676.84765625, 94)" data-id="D" data-node="true" id="flowchart-D-165" class="node default default flowchart-label">
+          <rect height="36" width="161" y="-18" x="-80.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">查询需要时读取情报</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(130.8203125, 94)" data-id="E" data-node="true" id="flowchart-E-166" class="node default default flowchart-label">
+          <rect height="36" width="261.640625" y="-18" x="-130.8203125" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">这个仓库提供 KQL 查询和调查说明</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(393.640625, 170)" data-id="F" data-node="true" id="flowchart-F-167" class="node default default flowchart-label">
+          <rect height="36" width="177" y="-18" x="-88.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">在自己的安全平台执行</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(275.640625, 246)" data-id="G" data-node="true" id="flowchart-G-173" class="node default default flowchart-label">
+          <rect height="36" width="240" y="-18" x="-120" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">手动查询：查看结果并继续调查</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(511.640625, 246)" data-id="H" data-node="true" id="flowchart-H-175" class="node default default flowchart-label">
+          <rect height="36" width="160" y="-18" x="-80" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">适配为平台检测规则</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(511.640625, 322)" data-id="I" data-node="true" id="flowchart-I-177" class="node default default flowchart-label">
+          <rect height="36" width="177" y="-18" x="-88.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">按配置运行并生成告警</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

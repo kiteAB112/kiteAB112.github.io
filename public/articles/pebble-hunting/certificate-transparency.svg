@@ -1,0 +1,615 @@
+<svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 784.375 1800.515625" height="1800.515625" xmlns="http://www.w3.org/2000/svg" width="784.375" id="certificate-transparency" style="background-color:#ffffff">
+  <style>#certificate-transparency{font-family:Segoe UI,Microsoft YaHei,sans-serif;font-size:16px;fill:#19385b;}#certificate-transparency .error-icon{fill:hsl(32.3076923077, 100%, 99.9019607843%);}#certificate-transparency .error-text{fill:rgb(0, 0.2307692308, 0.5000000001);stroke:rgb(0, 0.2307692308, 0.5000000001);}#certificate-transparency .edge-thickness-normal{stroke-width:2px;}#certificate-transparency .edge-thickness-thick{stroke-width:3.5px;}#certificate-transparency .edge-pattern-solid{stroke-dasharray:0;}#certificate-transparency .edge-pattern-dashed{stroke-dasharray:3;}#certificate-transparency .edge-pattern-dotted{stroke-dasharray:2;}#certificate-transparency .marker{fill:#758393;stroke:#758393;}#certificate-transparency .marker.cross{stroke:#758393;}#certificate-transparency svg{font-family:Segoe UI,Microsoft YaHei,sans-serif;font-size:16px;}#certificate-transparency .label{font-family:Segoe UI,Microsoft YaHei,sans-serif;color:#19385b;}#certificate-transparency .cluster-label text{fill:rgb(0, 0.2307692308, 0.5000000001);}#certificate-transparency .cluster-label span,#certificate-transparency p{color:rgb(0, 0.2307692308, 0.5000000001);}#certificate-transparency .label text,#certificate-transparency span,#certificate-transparency p{fill:#19385b;color:#19385b;}#certificate-transparency .node rect,#certificate-transparency .node circle,#certificate-transparency .node ellipse,#certificate-transparency .node polygon,#certificate-transparency .node path{fill:#e5f1ff;stroke:#b2c7de;stroke-width:1px;}#certificate-transparency .flowchart-label text{text-anchor:middle;}#certificate-transparency .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#certificate-transparency .node .label{text-align:center;}#certificate-transparency .node.clickable{cursor:pointer;}#certificate-transparency .arrowheadPath{fill:#0b0b0b;}#certificate-transparency .edgePath .path{stroke:#758393;stroke-width:2.0px;}#certificate-transparency .flowchart-link{stroke:#758393;fill:none;}#certificate-transparency .edgeLabel{background-color:hsl(92.3076923077, 100%, 94.9019607843%);text-align:center;}#certificate-transparency .edgeLabel rect{opacity:0.5;background-color:hsl(92.3076923077, 100%, 94.9019607843%);fill:hsl(92.3076923077, 100%, 94.9019607843%);}#certificate-transparency .labelBkg{background-color:rgba(241, 255, 228.9999999999, 0.5);}#certificate-transparency .cluster rect{fill:#f8fafc;stroke:#d3dde7;stroke-width:1px;}#certificate-transparency .cluster text{fill:rgb(0, 0.2307692308, 0.5000000001);}#certificate-transparency .cluster span,#certificate-transparency p{color:rgb(0, 0.2307692308, 0.5000000001);}#certificate-transparency div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Segoe UI,Microsoft YaHei,sans-serif;font-size:12px;background:hsl(32.3076923077, 100%, 99.9019607843%);border:1px solid hsl(32.3076923077, 60%, 89.9019607843%);border-radius:2px;pointer-events:none;z-index:100;}#certificate-transparency .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#19385b;}#certificate-transparency :root{--mermaid-font-family:Segoe UI,Microsoft YaHei,sans-serif;}#certificate-transparency .source rect{fill:#e8f1ff!important;stroke:#5789d4!important;color:#17345a!important;}#certificate-transparency .source polygon{fill:#e8f1ff!important;stroke:#5789d4!important;color:#17345a!important;}#certificate-transparency .source ellipse{fill:#e8f1ff!important;stroke:#5789d4!important;color:#17345a!important;}#certificate-transparency .source circle{fill:#e8f1ff!important;stroke:#5789d4!important;color:#17345a!important;}#certificate-transparency .source path{fill:#e8f1ff!important;stroke:#5789d4!important;color:#17345a!important;}#certificate-transparency .source tspan{fill:#17345a!important;}#certificate-transparency .risk rect{fill:#fff0e7!important;stroke:#e59a58!important;color:#75370e!important;}#certificate-transparency .risk polygon{fill:#fff0e7!important;stroke:#e59a58!important;color:#75370e!important;}#certificate-transparency .risk ellipse{fill:#fff0e7!important;stroke:#e59a58!important;color:#75370e!important;}#certificate-transparency .risk circle{fill:#fff0e7!important;stroke:#e59a58!important;color:#75370e!important;}#certificate-transparency .risk path{fill:#fff0e7!important;stroke:#e59a58!important;color:#75370e!important;}#certificate-transparency .risk tspan{fill:#75370e!important;}#certificate-transparency .action rect{fill:#e7f5eb!important;stroke:#63a578!important;color:#245b35!important;}#certificate-transparency .action polygon{fill:#e7f5eb!important;stroke:#63a578!important;color:#245b35!important;}#certificate-transparency .action ellipse{fill:#e7f5eb!important;stroke:#63a578!important;color:#245b35!important;}#certificate-transparency .action circle{fill:#e7f5eb!important;stroke:#63a578!important;color:#245b35!important;}#certificate-transparency .action path{fill:#e7f5eb!important;stroke:#63a578!important;color:#245b35!important;}#certificate-transparency .action tspan{fill:#245b35!important;}</style>
+  <g>
+    <marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="certificate-transparency_flowchart-pointEnd">
+      <path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z">
+      </path>
+    </marker>
+    <marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="certificate-transparency_flowchart-pointStart">
+      <path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z">
+      </path>
+    </marker>
+    <marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="certificate-transparency_flowchart-circleEnd">
+      <circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5">
+      </circle>
+    </marker>
+    <marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="certificate-transparency_flowchart-circleStart">
+      <circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5">
+      </circle>
+    </marker>
+    <marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="certificate-transparency_flowchart-crossEnd">
+      <path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9">
+      </path>
+    </marker>
+    <marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="certificate-transparency_flowchart-crossStart">
+      <path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9">
+      </path>
+    </marker>
+    <g class="root">
+      <g class="clusters">
+        <g id="ENRICH" class="cluster default flowchart-label">
+          <rect height="228" width="581.375" y="864.171875" x="0" ry="0" rx="0" style="">
+          </rect>
+          <g transform="translate(290.6875, 864.171875)" class="cluster-label">
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">情报富化分析</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="CT" class="cluster default flowchart-label">
+          <rect height="152" width="379.732421875" y="152" x="205.212890625" ry="0" rx="0" style="">
+          </rect>
+          <g transform="translate(395.0791015625, 152)" class="cluster-label">
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">公开 CT 日志体系</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+      <g class="edgePaths">
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M403.781,36L403.781,39.333C403.781,42.667,403.781,49.333,403.781,55.117C403.781,60.9,403.781,65.8,403.781,68.25L403.781,70.7">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M403.781,112L403.781,115.333C403.781,118.667,403.781,125.333,403.781,132C403.781,138.667,403.781,145.333,403.781,151.117C403.781,156.9,403.781,161.8,403.781,164.25L403.781,166.7">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D1" id="L-C-D1-0" d="M341.787,208L330.306,211.333C318.826,214.667,295.865,221.333,284.385,227.117C272.904,232.9,272.904,237.8,272.904,240.25L272.904,242.7">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D2" id="L-C-D2-0" d="M396.011,208L394.572,211.333C393.133,214.667,390.255,221.333,388.816,227.117C387.377,232.9,387.377,237.8,387.377,240.25L387.377,242.7">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D3" id="L-C-D3-0" d="M449.998,208L458.556,211.333C467.115,214.667,484.232,221.333,492.791,227.117C501.35,232.9,501.35,237.8,501.35,240.25L501.35,242.7">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D1 LE-E" id="L-D1-E-0" d="M272.904,284L272.904,287.333C272.904,290.667,272.904,297.333,272.904,304C272.904,310.667,272.904,317.333,281.317,323.7C289.73,330.067,306.556,336.135,314.968,339.168L323.381,342.202">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D2 LE-E" id="L-D2-E-0" d="M387.377,284L387.377,287.333C387.377,290.667,387.377,297.333,387.377,304C387.377,310.667,387.377,317.333,386.785,323.141C386.193,328.949,385.009,333.897,384.416,336.371L383.824,338.846">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D3 LE-E" id="L-D3-E-0" d="M501.35,284L501.35,287.333C501.35,290.667,501.35,297.333,501.35,304C501.35,310.667,501.35,317.333,491.398,323.739C481.447,330.145,461.544,336.291,451.593,339.364L441.642,342.436">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-F" id="L-E-F-0" d="M378.283,380L378.283,383.333C378.283,386.667,378.283,393.333,378.283,399.117C378.283,404.9,378.283,409.8,378.283,412.25L378.283,414.7">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-F LE-G" id="L-F-G-0" d="M378.283,456L378.283,459.333C378.283,462.667,378.283,469.333,378.283,475.117C378.283,480.9,378.283,485.8,378.283,488.25L378.283,490.7">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-G LE-H" id="L-G-H-0" d="M378.283,532L378.283,535.333C378.283,538.667,378.283,545.333,378.283,551.117C378.283,556.9,378.283,561.8,378.283,564.25L378.283,566.7">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-H LE-I" id="L-H-I-0" d="M378.283,608L378.283,611.333C378.283,614.667,378.283,621.333,378.345,627.2C378.407,633.067,378.53,638.134,378.592,640.668L378.654,643.202">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-I LE-J" id="L-I-J-0" d="M436.34,746.116L478.429,760.708C520.518,775.301,604.697,804.486,646.786,824.162C688.875,843.839,688.875,854.005,688.875,861.539C688.875,869.072,688.875,873.972,688.875,876.422L688.875,878.872">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-I LE-K" id="L-I-K-0" d="M323.974,748.863L289.676,762.997C255.378,777.132,186.783,805.402,152.485,824.62C118.188,843.839,118.188,854.005,118.188,861.539C118.188,869.072,118.188,873.972,118.188,876.422L118.188,878.872">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-K LE-L" id="L-K-L-0" d="M118.188,920.172L118.188,923.505C118.188,926.839,118.188,933.505,118.188,939.289C118.188,945.072,118.188,949.972,118.188,952.422L118.188,954.872">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-L LE-M" id="L-L-M-0" d="M118.188,996.172L118.188,999.505C118.188,1002.839,118.188,1009.505,139.505,1017.519C160.823,1025.532,203.458,1034.893,224.775,1039.573L246.093,1044.253">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;stroke-width:2px;stroke-dasharray:3;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-N LE-M" id="L-N-M-0" d="M300.875,996.172L300.875,999.505C300.875,1002.839,300.875,1009.505,300.249,1015.315C299.623,1021.126,298.371,1026.08,297.744,1028.557L297.118,1031.033">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;stroke-width:2px;stroke-dasharray:3;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-O LE-M" id="L-O-M-0" d="M473.375,996.172L473.375,999.505C473.375,1002.839,473.375,1009.505,450.555,1017.6C427.736,1025.695,382.097,1035.219,359.277,1039.981L336.458,1044.742">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-M LE-P" id="L-M-P-0" d="M291.27,1072.172L291.27,1075.505C291.27,1078.839,291.27,1085.505,291.27,1092.172C291.27,1098.839,291.27,1105.505,291.331,1111.372C291.393,1117.239,291.517,1122.306,291.579,1124.84L291.64,1127.373">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-P LE-Q" id="L-P-Q-0" d="M259.373,1255.447L251.774,1265.846C244.176,1276.246,228.978,1297.045,221.38,1311.644C213.781,1326.244,213.781,1334.644,213.781,1338.844L213.781,1343.044">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-P LE-R" id="L-P-R-0" d="M326.262,1253.352L334.848,1264.1C343.435,1274.849,360.608,1296.346,369.195,1311.295C377.781,1326.244,377.781,1334.644,377.781,1338.844L377.781,1343.044">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-R LE-S" id="L-R-S-0" d="M377.781,1384.344L377.781,1387.677C377.781,1391.01,377.781,1397.677,377.781,1403.46C377.781,1409.244,377.781,1414.144,377.781,1416.594L377.781,1419.044">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-S LE-T" id="L-S-T-0" d="M377.781,1460.344L377.781,1463.677C377.781,1467.01,377.781,1473.677,377.843,1479.544C377.905,1485.411,378.028,1490.478,378.09,1493.012L378.152,1495.545">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-T LE-U" id="L-T-U-0" d="M336.985,1646.719L327.451,1658.602C317.917,1670.484,298.849,1694.25,289.315,1710.333C279.781,1726.416,279.781,1734.816,279.781,1739.016L279.781,1743.216">
+        </path>
+        <path marker-end="url(#certificate-transparency_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-T LE-V" id="L-T-V-0" d="M419.578,1646.719L428.945,1658.602C438.312,1670.484,457.047,1694.25,466.414,1710.333C475.781,1726.416,475.781,1734.816,475.781,1739.016L475.781,1743.216">
+        </path>
+      </g>
+      <g class="edgeLabels">
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(688.875, 833.671875)" class="edgeLabel">
+          <g transform="translate(-8.5, -10.5)" class="label">
+            <rect height="21" width="17" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">否</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(118.1875, 833.671875)" class="edgeLabel">
+          <g transform="translate(-9, -10.5)" class="label">
+            <rect height="21" width="18" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">是</tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(213.78125, 1317.84375)" class="edgeLabel">
+          <g transform="translate(-8.5, -10.5)" class="label">
+            <rect height="21" width="17" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">否</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(377.78125, 1317.84375)" class="edgeLabel">
+          <g transform="translate(-9, -10.5)" class="label">
+            <rect height="21" width="18" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">是</tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g class="edgeLabel">
+          <g transform="translate(0, 0)" class="label">
+            <rect height="0" width="0" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(279.78125, 1718.015625)" class="edgeLabel">
+          <g transform="translate(-9, -10.5)" class="label">
+            <rect height="21" width="18" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">是</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(475.78125, 1718.015625)" class="edgeLabel">
+          <g transform="translate(-8.5, -10.5)" class="label">
+            <rect height="21" width="17" ry="0" rx="0">
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">否</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+      <g class="nodes">
+        <g transform="translate(118.1875, 978.171875)" data-id="L" data-node="true" id="flowchart-L-29" class="node default default flowchart-label">
+          <rect height="36" width="180.375" y="-18" x="-90.1875" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">DNS / RDAP / 网站内容</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(118.1875, 902.171875)" data-id="K" data-node="true" id="flowchart-K-27" class="node default risk flowchart-label">
+          <rect height="36" width="113" y="-18" x="-56.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">候选域名分析</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(291.26953125, 1054.171875)" data-id="M" data-node="true" id="flowchart-M-31" class="node default risk flowchart-label">
+          <rect height="36" width="80" y="-18" x="-40" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">风险评估</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(300.875, 978.171875)" data-id="N" data-node="true" id="flowchart-N-32" class="node default default flowchart-label">
+          <rect height="36" width="113" y="-18" x="-56.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">外部威胁情报</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(473.375, 978.171875)" data-id="O" data-node="true" id="flowchart-O-34" class="node default default flowchart-label">
+          <rect height="36" width="160" y="-18" x="-80" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">企业合法域名白名单</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(272.904296875, 266)" data-id="D1" data-node="true" id="flowchart-D1-5" class="node default source flowchart-label">
+          <rect height="36" width="79.3828125" y="-18" x="-39.69140625" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">CT Log A</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(403.78125, 190)" data-id="C" data-node="true" id="flowchart-C-3" class="node default default flowchart-label">
+          <rect height="36" width="144" y="-18" x="-72" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">提交证书或预证书</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(387.376953125, 266)" data-id="D2" data-node="true" id="flowchart-D2-7" class="node default source flowchart-label">
+          <rect height="36" width="77.5625" y="-18" x="-38.78125" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">CT Log B</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(501.349609375, 266)" data-id="D3" data-node="true" id="flowchart-D3-9" class="node default source flowchart-label">
+          <rect height="36" width="78.3828125" y="-18" x="-39.19140625" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">CT Log C</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(403.78125, 18)" data-id="A" data-node="true" id="flowchart-A-0" class="node default default flowchart-label">
+          <rect height="36" width="165.671875" y="-18" x="-82.8359375" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">网站申请 HTTPS 证书</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(403.78125, 94)" data-id="B" data-node="true" id="flowchart-B-1" class="node default default flowchart-label">
+          <rect height="36" width="152.609375" y="-18" x="-76.3046875" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">CA 验证并准备签发</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(378.283203125, 362)" data-id="E" data-node="true" id="flowchart-E-11" class="node default source flowchart-label">
+          <rect height="36" width="134.671875" y="-18" x="-67.3359375" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">CT 数据聚合服务</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(378.283203125, 438)" data-id="F" data-node="true" id="flowchart-F-17" class="node default source flowchart-label">
+          <rect height="36" width="113" y="-18" x="-56.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">实时证书采集</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(378.283203125, 514)" data-id="G" data-node="true" id="flowchart-G-19" class="node default default flowchart-label">
+          <rect height="36" width="168.5546875" y="-18" x="-84.27734375" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">提取 SAN 域名与去重</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(378.283203125, 590)" data-id="H" data-node="true" id="flowchart-H-21" class="node default risk flowchart-label">
+          <rect height="36" width="144" y="-18" x="-72" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">品牌仿冒规则匹配</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(378.283203125, 725.5859375)" data-id="I" data-node="true" id="flowchart-I-23" class="node default default flowchart-label">
+          <polygon style="" transform="translate(-77.5859375,77.5859375)" class="label-container" points="77.5859375,0 155.171875,-77.5859375 77.5859375,-155.171875 0,-77.5859375">
+          </polygon>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">是否命中规则?</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(688.875, 902.171875)" data-id="J" data-node="true" id="flowchart-J-25" class="node default default flowchart-label">
+          <rect height="36" width="159" y="-18" x="-79.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">丢弃或低优先级归档</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(291.26953125, 1209.7578125)" data-id="P" data-node="true" id="flowchart-P-37" class="node default risk flowchart-label">
+          <polygon style="" transform="translate(-77.5859375,77.5859375)" class="label-container" points="77.5859375,0 155.171875,-77.5859375 77.5859375,-155.171875 0,-77.5859375">
+          </polygon>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">风险是否较高?</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(213.78125, 1366.34375)" data-id="Q" data-node="true" id="flowchart-Q-39" class="node default default flowchart-label">
+          <rect height="36" width="127" y="-18" x="-63.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">归档并持续观察</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(377.78125, 1366.34375)" data-id="R" data-node="true" id="flowchart-R-41" class="node default risk flowchart-label">
+          <rect height="36" width="129" y="-18" x="-64.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">人工核查与告警</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(377.78125, 1442.34375)" data-id="S" data-node="true" id="flowchart-S-43" class="node default action flowchart-label">
+          <rect height="36" width="176" y="-18" x="-88" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">关联企业内部安全日志</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(377.78125, 1593.9296875)" data-id="T" data-node="true" id="flowchart-T-45" class="node default action flowchart-label">
+          <polygon style="" transform="translate(-93.5859375,93.5859375)" class="label-container" points="93.5859375,0 187.171875,-93.5859375 93.5859375,-187.171875 0,-93.5859375">
+          </polygon>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">是否发现相关访问?</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(279.78125, 1766.515625)" data-id="U" data-node="true" id="flowchart-U-47" class="node default action flowchart-label">
+          <rect height="36" width="159" y="-18" x="-79.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">事件调查与应急响应</tspan>
+            </text>
+          </g>
+        </g>
+        <g transform="translate(475.78125, 1766.515625)" data-id="V" data-node="true" id="flowchart-V-49" class="node default action flowchart-label">
+          <rect height="36" width="161" y="-18" x="-80.5" ry="0" rx="0" style="" class="basic label-container">
+          </rect>
+          <g transform="translate(0, -10.5)" style="" class="label">
+            <rect>
+            </rect>
+            <text style="">
+              <tspan class="row" x="0" dy="1em" xml:space="preserve">持续监控或发起处置</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
